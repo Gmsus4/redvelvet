@@ -1,0 +1,79 @@
+---
+const highlights = ['Pedidos personalizados', 'Mesas de postres', 'Entregas para eventos'];
+---
+
+<section class="relative overflow-hidden bg-primary pb-16">
+  <div class="hero-dots absolute inset-0"></div>
+
+  <div class="section-shell relative grid min-h-[calc(100vh-64px)] items-center gap-14 py-12 md:grid-cols-[0.95fr_0.9fr] md:gap-20 md:py-16 lg:gap-28">
+    <div class="max-w-2xl">
+      <p class="eyebrow mb-6">Pasteles artesanales en Veracruz</p>
+      <h1 class="display-title text-[clamp(4rem,11vw,8.8rem)] text-white">
+        redvelvet
+      </h1>
+      <p class="-mt-1 text-3xl font-black leading-tight text-black sm:text-4xl md:text-5xl">
+        Pasteles y postres para celebrar bonito.
+      </p>
+      <p class="mt-6 max-w-xl text-lg font-bold leading-8 text-black/78">
+        Pasteles, mostachones, cheesecakes y mesas de postres preparados con detalle para cumpleaños, bodas, baby showers y antojos importantes.
+      </p>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href="/#contacto" class="btn-secondary">
+          <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h8M8 12h5M5 21l3-3h10a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3" />
+          </svg>
+          Agendar pedido
+        </a>
+        <a href="/#productos" class="btn-ghost">
+          <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 3h12l1 6H5l1-6ZM5 9h14l-1 12H6L5 9Z" />
+          </svg>
+          Ver productos
+        </a>
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-l-4 border-black pl-4">
+        {highlights.map((item) => (
+          <p class="flex items-center gap-2 text-sm font-black text-black/82">
+            <span class="h-2.5 w-2.5 rounded-full bg-cream"></span>
+            {item}
+          </p>
+        ))}
+      </div>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[500px]">
+      <div class="pop-frame relative aspect-[4/5] overflow-hidden bg-secondary">
+        <img
+          src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=980&q=85"
+          alt="Pastel decorado con betún rosa y velas"
+          class="h-full w-full object-cover mix-blend-multiply saturate-125"
+          loading="eager"
+        />
+        <div class="absolute inset-x-4 bottom-4 rounded-md border-2 border-black bg-cream p-4 text-black shadow-[4px_4px_0_#080808]">
+          <p class="font-display text-2xl font-bold">redvelvet_pasteleria</p>
+          <p class="mt-1 text-sm font-bold leading-6">Diseños personalizados y sabor casero con presentación cuidada.</p>
+        </div>
+      </div>
+
+      <div class="absolute -left-3 top-7 hidden w-44 rounded-md border-2 border-black bg-white p-4 shadow-[4px_4px_0_#080808] md:block">
+        <p class="text-xs font-black uppercase text-primary">Especialidad</p>
+        <p class="mt-1 font-display text-xl font-bold text-black">Pasteles a medida</p>
+      </div>
+    </div>
+  </div>
+
+  <svg class="wavy-divider" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="currentColor" d="M0 34C60 56 120 56 180 34C240 12 300 12 360 34C420 56 480 56 540 34C600 12 660 12 720 34C780 56 840 56 900 34C960 12 1020 12 1080 34C1140 56 1200 56 1260 34C1320 12 1380 12 1440 34L1440 80L0 80Z" />
+    <path fill="none" stroke="#080808" stroke-width="4" d="M0 34C60 56 120 56 180 34C240 12 300 12 360 34C420 56 480 56 540 34C600 12 660 12 720 34C780 56 840 56 900 34C960 12 1020 12 1080 34C1140 56 1200 56 1260 34C1320 12 1380 12 1440 34" />
+  </svg>
+</section>
+
+<style>
+  .hero-dots {
+    background-image: radial-gradient(rgba(8, 8, 8, 0.16) 1.4px, transparent 1.4px);
+    background-size: 24px 24px;
+    opacity: 0.45;
+  }
+</style>

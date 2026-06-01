@@ -1,0 +1,93 @@
+---
+const links = [
+  { label: 'Productos', href: '/#productos' },
+  { label: 'Eventos', href: '/#eventos' },
+  { label: 'Cuidados', href: '/#recomendaciones' },
+  { label: 'Conócenos', href: '/#conocenos' },
+  { label: 'Contacto', href: '/#contacto' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b-2 border-black bg-black text-white">
+  <div class="section-shell flex h-16 items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-3" aria-label="Ir al inicio">
+      <span class="grid h-10 w-10 place-items-center rounded-md border-2 border-white bg-primary text-base font-black leading-none text-white">
+        rv
+      </span>
+      <span class="leading-none">
+        <span class="block font-body text-xl font-black text-white">redvelvet</span>
+        <span class="mt-1 block text-xs font-bold text-white">pastelería artesanal</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Navegación principal">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="rounded-md px-3 py-2 text-xs font-black leading-none text-white transition-colors hover:bg-primary"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden items-center gap-3 md:flex">
+      <a href="/#contacto" class="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white bg-white px-4 py-2 text-xs font-black leading-none text-black transition hover:bg-cream">
+        <svg aria-hidden="true" class="h-4 w-4 shrink-0 self-center" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h8M8 12h6M5 21l3.2-3.2H18a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v8.8a3 3 0 0 0 3 3" />
+        </svg>
+        <span>Agendar pedido</span>
+      </a>
+    </div>
+
+    <button
+      id="menu-btn"
+      class="grid h-10 w-10 place-items-center rounded-md border-2 border-white bg-white text-black md:hidden"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      type="button"
+    >
+      <svg aria-hidden="true" class="h-5 w-5 menu-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+      <svg aria-hidden="true" class="hidden h-5 w-5 menu-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" d="m6 6 12 12M18 6 6 18" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t-2 border-white/20 bg-black md:hidden">
+    <nav class="section-shell flex flex-col gap-2 py-4" aria-label="Navegación móvil">
+      {links.map((link) => (
+        <a href={link.href} class="rounded-md px-3 py-3 text-sm font-black text-white hover:bg-primary">
+          {link.label}
+        </a>
+      ))}
+      <a href="/#contacto" class="btn-light mt-2 w-full">Agendar pedido</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = menuBtn?.querySelector('.menu-open');
+  const closeIcon = menuBtn?.querySelector('.menu-close');
+
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    openIcon?.classList.toggle('hidden', !isOpen);
+    closeIcon?.classList.toggle('hidden', isOpen);
+  });
+
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+      openIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    });
+  });
+</script>
