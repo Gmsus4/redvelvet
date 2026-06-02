@@ -1,120 +1,144 @@
 ---
+// Products.astro — Red Velvet Bakery · Tailwind CSS
+
 const products = [
   {
-    name: 'Pasteles personalizados',
-    description: 'Diseños únicos para cada ocasión especial.',
-    tone: 'bg-white',
-    image: 'https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=420&q=80',
+    id: "01",
+    name: "Pasteles personalizados",
+    desc: "Diseños únicos para cada ocasión especial.",
+    img: "/images/products/pasteles.jpg",
   },
   {
-    name: 'Mostachón',
-    description: 'Merengue suave con frutas frescas y crema ligera.',
-    tone: 'bg-secondary',
-    image: 'https://images.unsplash.com/photo-1488477304112-4944851de03d?auto=format&fit=crop&w=420&q=80',
+    id: "02",
+    name: "Mostachón",
+    desc: "Merengue suave con frutas frescas y crema ligera.",
+    img: "/images/products/mostachon.jpg",
   },
   {
-    name: 'Cheesecakes',
-    description: 'Cremosos, equilibrados y con toppings de temporada.',
-    tone: 'bg-white',
-    image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=420&q=80',
+    id: "03",
+    name: "Cheesecakes",
+    desc: "Cremosos, equilibrados y con toppings de temporada.",
+    img: "/images/products/cheesecake.jpg",
   },
   {
-    name: 'Pays',
-    description: 'Recetas tradicionales con rellenos llenos de sabor.',
-    tone: 'bg-cream',
-    image: 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=420&q=80',
+    id: "04",
+    name: "Pays",
+    desc: "Recetas tradicionales con rellenos llenos de sabor.",
+    img: "/images/products/pays.jpg",
   },
   {
-    name: 'Cupcakes',
-    description: 'Individuales, decorados y listos para compartir.',
-    tone: 'bg-secondary',
-    image: 'https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=420&q=80',
+    id: "05",
+    name: "Cupcakes",
+    desc: "Individuales, decorados y listos para compartir.",
+    img: "/images/products/cupcakes.jpg",
   },
   {
-    name: 'Mini cakes',
-    description: 'Pequeños pasteles con presentación especial.',
-    tone: 'bg-white',
-    image: 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=420&q=80',
+    id: "06",
+    name: "Mini cakes",
+    desc: "Pequeños pasteles con presentación especial.",
+    img: "/images/products/minicakes.jpg",
   },
   {
-    name: 'Donas con toppings',
-    description: 'Suaves y cubiertas con tus combinaciones favoritas.',
-    tone: 'bg-cream',
-    image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=420&q=80',
+    id: "07",
+    name: "Donas con toppings",
+    desc: "Suaves y cubiertas con tus combinaciones favoritas.",
+    img: "/images/products/donas.jpg",
   },
   {
-    name: 'Fresas con chocolate',
-    description: 'Fresas frescas bañadas y decoradas al momento.',
-    tone: 'bg-secondary',
-    image: 'https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=420&q=80',
+    id: "08",
+    name: "Fresas con chocolate",
+    desc: "Fresas frescas bañadas y decoradas al momento.",
+    img: "/images/products/fresas.jpg",
   },
   {
-    name: 'Brownies con toppings',
-    description: 'Húmedos, intensos y personalizados.',
-    tone: 'bg-white',
-    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=420&q=80',
+    id: "09",
+    name: "Brownies con toppings",
+    desc: "Húmedos, intensos y personalizados.",
+    img: "/images/products/brownies.jpg",
   },
   {
-    name: 'New York cookies',
-    description: 'Grandes, suaves por dentro y doradas por fuera.',
-    tone: 'bg-cream',
-    image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=420&q=80',
+    id: "10",
+    name: "New York cookies",
+    desc: "Grandes, suaves por dentro y doradas por fuera.",
+    img: "/images/products/cookies.jpg",
   },
 ];
 ---
 
-<section id="productos" class="relative overflow-hidden bg-cream py-20 pb-28 md:py-28 md:pb-36">
-  <div class="section-shell">
-    <div class="mb-12 grid gap-6 md:grid-cols-[0.8fr_1fr] md:items-end">
+<section class="bg-paper py-20 px-6 font-body text-ink">
+  <div class="mx-auto max-w-6xl">
+
+    <!-- ── Encabezado ── -->
+    <div class="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
       <div>
-        <p class="eyebrow mb-4">Lo que hacemos</p>
-        <h2 class="display-title text-5xl sm:text-6xl md:text-7xl">Productos con antojo real</h2>
+        <!-- Etiqueta -->
+        <span class="mb-4 inline-block rounded-full border-2 border-ink px-4 py-1 text-xs font-bold uppercase tracking-[.16em] text-ink">
+          Lo que hacemos
+        </span>
+        <h2 class="font-display text-[clamp(2.6rem,5vw,4rem)] font-black leading-[.95] tracking-tight text-ink">
+          Productos con<br>antojo real
+        </h2>
       </div>
-      <p class="max-w-2xl text-base font-bold leading-8 text-black/74 md:justify-self-end md:text-right">
+      <p class="max-w-xs text-right text-sm leading-relaxed text-muted lg:max-w-[280px]">
         Aquí está el menú base para elegir algo clásico o pedir una idea completamente personalizada.
       </p>
     </div>
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-      {products.map((product, index) => (
-        <article class={`group min-h-64 overflow-hidden rounded-lg border-2 border-black shadow-[5px_5px_0_#080808] transition duration-200 hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0_#080808] ${product.tone}`}>
-          <div class="relative h-28 border-b-2 border-black bg-primary">
+    <!-- ── Grid de productos ── -->
+    <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      {products.map(({ id, name, desc, img }) => (
+        <li class="group relative flex flex-col overflow-hidden rounded-2xl border border-secondary/30 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_#ef2f7f22]">
+
+          <!-- Imagen con overlay al hover -->
+          <div class="relative h-40 overflow-hidden bg-muted/10">
             <img
-              src={product.image}
-              alt={product.name}
-              class="h-full w-full object-cover mix-blend-multiply saturate-125 transition duration-200 group-hover:scale-105"
-              loading="eager"
+              src={img}
+              alt={name}
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
             />
-            <span class="absolute left-3 top-3 grid h-9 w-9 place-items-center rounded-md border-2 border-black bg-cream text-xs font-black text-primary">
-              {String(index + 1).padStart(2, '0')}
+            <!-- Overlay degradado -->
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+
+            <!-- Número -->
+            <span class="absolute left-2 top-2 rounded-md bg-primary px-2 py-0.5 font-display text-xs font-bold text-white">
+              {id}
             </span>
           </div>
-          <div class="p-5">
-            <h3 class="font-body text-xl font-black leading-6 text-black">{product.name}</h3>
-            <p class="mt-3 text-sm font-bold leading-6 text-black/68">{product.description}</p>
+
+          <!-- Texto -->
+          <div class="flex flex-1 flex-col gap-1.5 p-4">
+            <h3 class="font-display text-base font-bold leading-tight text-ink">
+              {name}
+            </h3>
+            <p class="text-xs leading-relaxed text-muted">
+              {desc}
+            </p>
           </div>
-        </article>
+
+          <!-- Línea de acento al hover -->
+          <div class="h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+        </li>
       ))}
+    </ul>
+
+    <!-- ── Banner CTA ── -->
+    <div class="mt-10 flex flex-col items-start justify-between gap-6 rounded-2xl bg-primary p-8 sm:flex-row sm:items-center">
+      <div>
+        <h3 class="font-display text-xl font-black text-white leading-snug">
+          ¿No ves exactamente lo que buscas?
+        </h3>
+        <p class="mt-1.5 max-w-md text-sm leading-relaxed text-white/80">
+          Cuéntanos la idea, el número de invitados y la fecha. Te ayudamos a convertirlo en una propuesta clara.
+        </p>
+      </div>
+      <a
+        href="#pedidos"
+        class="shrink-0 flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:bg-white hover:text-primary"
+      >
+        <span class="text-lg">+</span> Personalizar pedido
+      </a>
     </div>
 
-    <div class="mt-12 grid overflow-hidden rounded-lg border-2 border-black bg-primary text-white shadow-[7px_7px_0_#080808] md:grid-cols-[1fr_auto]">
-      <div class="p-7 md:p-9">
-        <p class="font-body text-3xl font-black">¿No ves exactamente lo que buscas?</p>
-        <p class="mt-2 max-w-xl text-sm font-bold leading-7 text-white/82">Cuéntanos la idea, el número de invitados y la fecha. Te ayudamos a convertirlo en una propuesta clara.</p>
-      </div>
-      <div class="flex items-center border-t-2 border-black p-7 md:border-l-2 md:border-t-0 md:p-9">
-        <a href="/#contacto" class="btn-light">
-          <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" />
-          </svg>
-          Personalizar pedido
-        </a>
-      </div>
-    </div>
   </div>
-
-  <svg class="section-wave text-secondary" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-    <path fill="currentColor" d="M0 34C60 56 120 56 180 34C240 12 300 12 360 34C420 56 480 56 540 34C600 12 660 12 720 34C780 56 840 56 900 34C960 12 1020 12 1080 34C1140 56 1200 56 1260 34C1320 12 1380 12 1440 34L1440 80L0 80Z" />
-    <path fill="none" stroke="#080808" stroke-width="4" d="M0 34C60 56 120 56 180 34C240 12 300 12 360 34C420 56 480 56 540 34C600 12 660 12 720 34C780 56 840 56 900 34C960 12 1020 12 1080 34C1140 56 1200 56 1260 34C1320 12 1380 12 1440 34" />
-  </svg>
 </section>
