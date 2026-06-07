@@ -12,8 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/fraunces": "^5.2.9",
     "@fontsource-variable/lexend": "^5.2.11",
     "@fontsource-variable/playfair-display": "^5.2.8",
+    "@fontsource/bree-serif": "^5.2.8",
     "@fontsource/lato": "^5.2.7",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.4.2",

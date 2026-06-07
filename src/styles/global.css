@@ -1,5 +1,7 @@
 @import '@fontsource-variable/playfair-display/wght.css';
+@import '@fontsource-variable/fraunces/wght.css';
 @import '@fontsource-variable/lexend/wght.css';
+@import '@fontsource/bree-serif/400.css';
 @import '@fontsource/lato/400.css';
 @import '@fontsource/lato/700.css';
 @import '@fontsource/lato/900.css';
@@ -19,6 +21,7 @@
   --color-cocoa: #080808;
 
   --font-display: "Playfair Display Variable", serif;
+  --font-hero: "Bree Serif", serif;
   --font-body2: "Lato", sans-serif;
   --font-body: 'Lexend Variable', sans-serif;
 }
@@ -39,8 +42,14 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--color-ink);
-  background: var(--color-cream);
+  background:
+    radial-gradient(circle at 16px 16px, rgb(239 47 127 / 0.055) 1px, transparent 1.5px) 0 0 / 34px 34px,
+    var(--color-cream);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
 }

@@ -55,27 +55,27 @@ const products = [
 
 <Layout title="Productos - Redvelvet pastelería">
     <Navbar />
-    <main class="grid w-full place-items-center pt-34">
-        <div class="grid w-full max-w-xl place-items-center gap-10 px-6">
-            <div class="relative">
-                <img src="/mujer.png" alt="" class="w-70">
-                <img src="/pastel.png" alt="" class="w-24 absolute bottom-0 right-1/2">
-                <img src="/gato.png" alt="" class="w-40 absolute bottom-0 -left-22">
-                <img src="/florero.png" alt="" class="w-16 absolute bottom-0 -right-8">
+    <main class="grid w-full place-items-center px-6 pb-6 pt-32 md:pt-36">
+        <div class="grid w-full max-w-2xl place-items-center gap-10">
+            <div class="relative h-64 w-full max-w-sm">
+                <img src="/mujer.png" alt="" class="absolute bottom-0 left-1/2 w-64 -translate-x-1/2">
+                <img src="/pastel.png" alt="" class="absolute bottom-0 left-1/2 w-22 -translate-x-28">
+                <img src="/gato.png" alt="" class="absolute bottom-0 left-0 w-34 sm:-left-8">
+                <img src="/florero.png" alt="" class="absolute bottom-0 right-2 w-14 sm:-right-4">
             </div>
 
-            <div class="flex flex-col gap-4">
-                <h1 class="font-[Caveat] text-5xl md:text-6xl text-left w-full text-primary">Nuestros productos.</h1>
+            <div class="flex w-full flex-col gap-4">
+                <h1 class="w-full text-left font-[Caveat] text-5xl text-primary md:text-6xl">Nuestros productos.</h1>
                 <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Hechos con ingredientes de calidad, con mucho cariño y ese toque especial que los hace inolvidables.</p>
                 <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Aquí puedes encontrar opciones para antojos, detalles, reuniones o celebraciones más especiales.</p>
             </div>
 
-            <div class="grid w-full grid-cols-2 gap-x-6 gap-y-14 sm:grid-cols-3">
+            <div class="grid w-full grid-cols-2 gap-x-7 gap-y-14 sm:grid-cols-3 md:gap-x-10">
                 {products.map(({ name, description, image }) => (
                     <div class="group relative flex flex-col items-center gap-3 text-center">
-                        <img src="/corazon.png" alt="" class="absolute right-2 w-6 rotate-6" />
+                        <img src="/corazon.png" alt="" class="absolute right-3 top-0 w-5 rotate-6 opacity-90" />
                         <div class="relative h-32 w-32 shrink-0 sm:h-36 sm:w-36">
-                            <div class="h-full w-full overflow-hidden rounded-full border-2 border-primary/15 shadow-[3px_3px_0_#f9a2b4] transition group-hover:-translate-y-1 group-hover:shadow-[4px_4px_0_#f9a2b4]">
+                            <div class="h-full w-full overflow-hidden rounded-full border border-primary/15 bg-white shadow-[0_12px_30px_rgb(239_47_127_/_0.12)] transition group-hover:-translate-y-1 group-hover:shadow-[0_16px_34px_rgb(239_47_127_/_0.18)]">
                                 <img src={image} alt={name} class="h-full w-full object-cover" />
                             </div>
                         </div>

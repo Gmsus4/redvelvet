@@ -7,79 +7,80 @@ const currentYear = new Date().getFullYear();
 
 const sections = [
   {
-    title: 'Qué información recopilamos',
-    description: 'Al realizar un pedido podemos solicitar tu nombre, teléfono, correo, dirección de entrega y detalles necesarios para preparar o coordinar tu pedido.',
+    title: 'Que informacion recopilamos',
+    description: 'Al realizar un pedido podemos solicitar tu nombre, telefono, correo, direccion de entrega y detalles necesarios para preparar o coordinar tu pedido.',
   },
   {
-    title: 'Para qué usamos tus datos',
-    description: 'Usamos esta información únicamente para confirmar pedidos, resolver dudas, coordinar entregas y dar seguimiento a la atención que nos solicitaste.',
+    title: 'Para que usamos tus datos',
+    description: 'Usamos esta informacion solo para confirmar pedidos, resolver dudas, coordinar entregas y dar seguimiento a la atencion que nos solicitaste.',
   },
   {
-    title: 'Cómo cuidamos tu información',
-    description: 'Tratamos tus datos con confidencialidad. No vendemos, rentamos ni compartimos tu información personal con terceros para fines publicitarios.',
+    title: 'Como cuidamos tu informacion',
+    description: 'Tratamos tus datos con confidencialidad. No vendemos, rentamos ni compartimos tu informacion personal con terceros para fines publicitarios.',
   },
   {
     title: 'Mensajes y redes sociales',
-    description: 'Si nos contactas por WhatsApp, Instagram, TikTok o Facebook, también aplican las políticas de privacidad de esas plataformas.',
+    description: 'Si nos contactas por WhatsApp, Instagram, TikTok o Facebook, tambien aplican las politicas de privacidad de esas plataformas.',
   },
   {
-    title: 'Eliminación de datos',
-    description: 'Puedes pedir que eliminemos tu información de nuestros registros escribiéndonos por cualquiera de nuestros canales de contacto.',
+    title: 'Eliminacion de datos',
+    description: 'Puedes pedir que eliminemos tu informacion de nuestros registros escribiendonos por cualquiera de nuestros canales de contacto.',
   },
   {
-    title: 'Cambios a esta política',
-    description: 'Podemos actualizar esta política cuando sea necesario. La versión vigente estará publicada en esta misma página.',
+    title: 'Cambios a esta politica',
+    description: 'Podemos actualizar esta politica cuando sea necesario. La version vigente estara publicada en esta misma pagina.',
   },
 ];
 ---
 
-<Layout title="Política de privacidad - Redvelvet pastelería">
+<Layout title="Politica de privacidad - Redvelvet pasteleria">
   <Navbar />
 
-  <main class="w-full px-6 pb-24 pt-34">
-    <section class="mx-auto grid w-full max-w-5xl gap-12 md:grid-cols-[0.95fr_1.05fr] md:items-end">
-      <div class="relative">
-        <img src="/pastel.png" alt="" class="pointer-events-none absolute right-0 top-4 hidden w-20 select-none md:block" />
+  <main class="grid w-full place-items-center px-6 pb-8 pt-32 md:pt-36">
+    <div class="grid w-full max-w-2xl place-items-center gap-10">
+      <div class="relative h-64 w-full max-w-sm">
+        <img src="/mujer.png" alt="" class="absolute bottom-0 left-1/2 w-64 -translate-x-1/2" />
+        <img src="/pastel.png" alt="" class="absolute bottom-0 left-1/2 w-22 -translate-x-28" />
+        <img src="/gato.png" alt="" class="absolute bottom-0 left-0 w-34 sm:-left-8" />
+        <img src="/florero.png" alt="" class="absolute bottom-0 right-2 w-14 sm:-right-4" />
+      </div>
 
-        <p class="font-[Caveat] text-6xl font-bold leading-none text-primary">Privacidad</p>
-        <h1 class="mt-5 max-w-xl text-balance text-3xl font-black leading-tight text-primary sm:text-4xl">
+      <section class="flex w-full flex-col gap-4">
+        <p class="font-[Caveat] text-5xl font-bold leading-none text-primary md:text-6xl">Privacidad</p>
+        <h1 class="text-balance text-2xl font-black leading-tight text-copy md:text-3xl">
           Tus datos se usan solo para cuidar tu pedido.
         </h1>
+        <p class="text-base font-bold leading-8 text-copy">
+          En Redvelvet tratamos tu informacion con cuidado. Esta pagina explica que datos pedimos y como los usamos cuando nos contactas o haces un pedido.
+        </p>
+        <p class="text-sm font-bold text-softcopy">
+          Ultima actualizacion: {currentYear}
+        </p>
+      </section>
 
-        <div class="mt-4 max-w-md space-y-4 text-base font-bold leading-8 text-copy">
-          <p>
-            En Redvelvet tratamos tu información con cuidado. Esta página explica qué datos pedimos y cómo los usamos cuando nos contactas o haces un pedido.
-          </p>
-          <p class="text-sm text-softcopy">
-            Última actualización: {currentYear}
-          </p>
-        </div>
-      </div>
+      <section class="grid w-full gap-3">
+        {sections.map((section, index) => (
+          <article class="grid grid-cols-[auto_1fr] gap-4 rounded-3xl border border-primary/10 bg-white/65 px-5 py-4 shadow-[0_12px_30px_rgb(239_47_127_/_0.08)] backdrop-blur-sm">
+            <span class="pt-1 font-[Caveat] text-3xl font-bold leading-none text-primary">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <div>
+              <h2 class="text-sm font-black uppercase leading-5 text-primary">{section.title}</h2>
+              <p class="mt-2 text-sm font-bold leading-7 text-copy">{section.description}</p>
+            </div>
+          </article>
+        ))}
+      </section>
 
-      <div class="relative h-52 w-full max-w-sm justify-self-center md:justify-self-end">
-        <img src="/mujer.png" alt="" class="absolute bottom-0 left-16 w-44" />
-        <img src="/gato.png" alt="" class="absolute bottom-0 left-0 w-28" />
-        <img src="/florero.png" alt="" class="absolute bottom-0 right-16 w-12" />
-      </div>
-    </section>
-
-    <section class="mx-auto mt-12 grid w-full max-w-5xl gap-3 md:grid-cols-2">
-      {sections.map((section) => (
-        <article class="rounded-[2rem] bg-secondary/20 px-5 py-4 text-primary">
-          <h2 class="font-[Caveat] text-3xl font-bold leading-none">{section.title}</h2>
-          <p class="mt-3 text-sm font-bold leading-7 text-copy">{section.description}</p>
-        </article>
-      ))}
-    </section>
-
-    <section class="mx-auto mt-12 flex w-full max-w-5xl flex-col gap-4 rounded-[2rem] border-2 border-primary bg-secondary/25 p-5 text-primary shadow-[5px_5px_0_#ef2f7f] sm:flex-row sm:items-center sm:justify-between">
-      <p class="max-w-xl text-base font-bold leading-8 text-copy">
-        Si tienes dudas sobre el manejo de tu información, puedes escribirnos directamente.
-      </p>
-      <a href="/contact" class="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-black text-white shadow-[3px_3px_0_#f9a2b4] transition hover:bg-primary/90">
-        Contactar
-      </a>
-    </section>
+      <section class="flex w-full flex-col gap-4 rounded-3xl border border-primary/15 bg-secondary/18 p-5 shadow-[0_14px_34px_rgb(239_47_127_/_0.1)] sm:flex-row sm:items-center sm:justify-between">
+        <p class="max-w-md text-base font-bold leading-8 text-copy">
+          Si tienes dudas sobre el manejo de tu informacion, puedes escribirnos directamente.
+        </p>
+        <a href="/contact" class="inline-flex w-fit rounded-full bg-primary px-6 py-3 text-sm font-black text-white shadow-[0_12px_30px_rgb(239_47_127_/_0.22)] transition hover:-translate-y-0.5 hover:bg-primary/90">
+          Contactar
+        </a>
+      </section>
+    </div>
   </main>
 
   <Footer />

@@ -1,61 +1,69 @@
 ---
-const socials = [
-  {
-    name: 'Instagram',
-    url: '#',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <path d="M17.5 6.5h.01" />
-    </svg>`,
-  },
-  {
-    name: 'TikTok',
-    url: '#',
-    icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M16.7 3c.42 2.46 1.78 3.95 4.1 4.1v3.05a7.2 7.2 0 0 1-4.05-1.25v6.15c0 3.2-2.36 5.95-5.77 5.95-3.16 0-5.78-2.37-5.78-5.62 0-3.66 3.46-6.33 7.08-5.46v3.2c-1.7-.55-3.83.3-3.83 2.2 0 1.45 1.13 2.5 2.55 2.5 1.6 0 2.58-1.22 2.58-2.78V3h3.12Z" />
-    </svg>`,
-  },
-  {
-    name: 'Facebook',
-    url: '#',
-    icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M14.1 21v-7.4h2.48l.38-2.88H14.1V8.88c0-.83.23-1.4 1.43-1.4h1.52V4.9c-.26-.04-1.17-.11-2.23-.11-2.2 0-3.7 1.34-3.7 3.8v2.13H8.63v2.88h2.49V21h2.98Z" />
-    </svg>`,
-  },
-];
+const highlights = ['Pasteles personalizados', 'Mesas dulces', 'Postres artesanales'];
 ---
 
-<section class="grid place-items-center h-screen w-full">
-  <div class="max-w-5xl relative bg-amber-600/05 w-full">
-    <img src="/fondo3.png" alt="" class="absolute -top-50 z-10 hidden md:flex">
-    <img src="/fondo4.png" alt="" class="absolute -bottom-40 z-10">
-    <div class="flex flex-col items-center gap-10 ">
-      <p class="text-primary z-20 font-[caveat] text-5xl text-center">Hello! I'm Belle, <br>I'm a designer who <br>makes magic through <br> product & brand.</p>
-      <div class="z-20 flex items-center gap-4">
-        <a href="" class="px-6 py-2 bg-primary rounded-full text-white text-sm">dsd</a>
-        <div class="z-20 flex flex-col ">
-          <span class="z-20 text-primary font-bold text-center md:text-left">Fresco y delicioso</span>
-          <span class="text-center z-20 text-softcopy text-sm text-center md:text-left">desde 2020</span>
-        </div>
+<section class="grid min-h-[100svh] w-full place-items-center px-6 pb-10 pt-24 sm:px-8 md:px-10 md:pb-14 md:pt-28">
+  <div class="relative grid w-full max-w-6xl gap-10 overflow-hidden py-6 md:grid-cols-[0.95fr_1.05fr] md:items-center md:gap-12 md:py-10">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0">
+      <img src="/izquierda/corazon1.png" alt="" class="absolute left-1 top-8 w-7 rotate-12 md:left-[6%] md:top-[12%] md:w-8" />
+      <img src="/izquierda/estrella.png" alt="" class="absolute right-4 top-20 w-7 md:left-[34%] md:right-auto md:top-[18%] md:w-9" />
+      <img src="/derecha/corazon2.png" alt="" class="absolute bottom-[18%] left-4 w-5 -rotate-12 md:left-[42%] md:w-6" />
+      <img src="/derecha/decoracion2.png" alt="" class="absolute right-2 top-[35%] hidden w-16 md:block" />
+      <img src="/izquierda/linea1.png" alt="" class="absolute left-[28%] top-[8%] hidden w-8 md:block" />
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center text-center md:items-start md:text-left">
+      <p class="mb-4 rounded-full bg-secondary/25 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
+        Reposteria artesanal
+      </p>
+
+      <h1 class="max-w-[12ch] font-hero text-[clamp(2.9rem,10vw,5.7rem)] font-normal leading-[0.94] text-secondary md:max-w-[11ch] md:text-[3.7rem] lg:text-[4.45rem] xl:text-[5rem] 2xl:text-[5.35rem]">
+        <span class="text-primary">Redvelvet,</span><br />
+        postres para celebrar bonito.
+      </h1>
+
+      <p class="mt-6 max-w-md text-balance text-base font-bold leading-8 text-copy md:text-base lg:text-lg">
+        Pasteles, mesas dulces y detalles hechos con cuidado para cumpleanos, reuniones y momentos especiales.
+      </p>
+
+      <div class="mt-7 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row md:items-start">
+        <a href="/contact" class="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-primary/90 sm:w-auto">
+          Haz tu pedido
+        </a>
+        <a href="/products" class="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-primary/25 bg-white/55 px-8 text-sm font-black text-primary transition hover:-translate-y-0.5 hover:bg-white sm:w-auto">
+          Ver productos
+        </a>
+      </div>
+
+      <ul class="mt-7 flex w-full list-none flex-wrap justify-center gap-2 p-0 md:justify-start">
+        {highlights.map((item) => (
+          <li class="rounded-full border border-primary/12 bg-cream/80 px-3.5 py-2 text-xs font-black text-softcopy backdrop-blur-sm">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="relative z-10 mx-auto grid w-full max-w-[28rem] place-items-center md:max-w-[32rem]">
+      <div class="relative aspect-[0.92] w-full max-w-[23rem] sm:max-w-[25rem] md:max-w-[29rem]">
+        <div class="absolute inset-x-6 bottom-0 top-10 rounded-[2.5rem] bg-secondary/18"></div>
+
+        <figure class="absolute left-1/2 top-4 w-[72%] -translate-x-1/2 overflow-hidden rounded-[2rem] border border-primary/12 bg-white p-2 shadow-[0_22px_50px_rgb(239_47_127_/_0.18)]">
+          <img src="/products/pasteles.jpg" alt="Pastel personalizado de Redvelvet" class="aspect-[4/5] w-full rounded-[1.5rem] object-cover" />
+        </figure>
+
+        <figure class="absolute bottom-18 left-0 w-[34%] overflow-hidden rounded-full border-4 border-cream bg-white shadow-[0_16px_34px_rgb(239_47_127_/_0.2)]">
+          <img src="/products/fresas.jpg" alt="Fresas con chocolate" class="aspect-square w-full object-cover" />
+        </figure>
+
+        <figure class="absolute bottom-10 right-0 w-[38%] overflow-hidden rounded-full border-4 border-cream bg-white shadow-[0_16px_34px_rgb(239_47_127_/_0.2)]">
+          <img src="/products/cupcakes.jpg" alt="Cupcakes decorados" class="aspect-square w-full object-cover" />
+        </figure>
+
+        <img src="/gato3.png" alt="" class="pointer-events-none absolute bottom-1 left-[10%] w-20 -scale-x-100 select-none sm:w-24" />
+        <img src="/mujerdibujoremove.png" alt="" class="pointer-events-none absolute bottom-0 right-[12%] w-20 select-none sm:w-24" />
+        <img src="/corazon.png" alt="" class="pointer-events-none absolute right-[8%] top-2 w-7 rotate-12 select-none" />
       </div>
     </div>
-    <div class="absolute lg:-bottom-40 -bottom-70 left-1/2 z-30 flex w-full max-w-xl -translate-x-1/2 flex-wrap items-center justify-center gap-3 px-2">
-      {socials.map((social) => (
-        <a
-          href={social.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={social.name}
-          class="group inline-flex min-h-11 items-center gap-2 rounded-full border-2 border-primary bg-cream/95 px-4 text-sm font-black text-primary shadow-[3px_3px_0_#ef2f7f] backdrop-blur transition hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-primary hover:text-white hover:shadow-[1px_1px_0_#ef2f7f]"
-        >
-          <span class="grid h-5 w-5 place-items-center [&_svg]:h-5 [&_svg]:w-5">
-            <span set:html={social.icon} />
-          </span>
-          <span>{social.name}</span>
-        </a>
-      ))}
-    </div>
-  </div>
   </div>
 </section>

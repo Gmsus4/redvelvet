@@ -11,7 +11,7 @@ const leftLinks: NavLink[] = [
 
 const rightLinks: NavLink[] = [
   { label: 'Contacto', href: '/contact' },
-  { label: 'Conócenos', href: '/about' },
+  { label: 'Conocenos', href: '/about' },
 ];
 
 const allLinks = [...leftLinks, ...rightLinks];
@@ -26,10 +26,8 @@ const desktopLinkClass = (href: string) => [
 ];
 
 const mobileLinkClass = (href: string) => [
-  'block rounded-full px-4 py-2 text-base font-black no-underline transition duration-150',
-  isActive(href)
-    ? 'border-2 border-primary bg-primary text-white shadow-[3px_3px_0_#f9a2b4]'
-    : 'text-copy hover:bg-secondary/45 hover:text-primary',
+  'block text-center font-[Caveat] text-[2.35rem] font-bold leading-none no-underline transition duration-150',
+  isActive(href) ? 'text-primary' : 'text-primary/45 hover:text-primary',
 ];
 ---
 
@@ -47,7 +45,7 @@ const mobileLinkClass = (href: string) => [
 
     <a
       href="/"
-      class="absolute left-1/2 -translate-x-1/2 text-center font-[Caveat] text-[3rem] font-bold leading-none tracking-tight text-primary no-underline transition-opacity duration-150 hover:opacity-70 md:static md:translate-x-0 md:px-10"
+      class="absolute left-1/2 z-[70] -translate-x-1/2 text-center font-[Caveat] text-[3rem] font-bold leading-none tracking-tight text-primary no-underline transition-opacity duration-150 hover:opacity-70 md:static md:translate-x-0 md:px-10"
     >
       Redvelvet
     </a>
@@ -64,10 +62,10 @@ const mobileLinkClass = (href: string) => [
 
     <button
       id="hamburger-btn"
-      aria-label="Abrir menú"
+      aria-label="Abrir menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
-      class="ml-auto flex h-[18px] w-7 cursor-pointer flex-col justify-between border-0 bg-transparent p-0 md:hidden"
+      class="relative z-[70] ml-auto flex h-[18px] w-7 cursor-pointer flex-col justify-between border-0 bg-transparent p-0 md:hidden"
     >
       <span id="h-line1" class="block h-0.5 w-full origin-center rounded bg-primary transition-all duration-300"></span>
       <span id="h-line2" class="block h-0.5 w-full rounded bg-primary transition-all duration-300"></span>
@@ -78,18 +76,19 @@ const mobileLinkClass = (href: string) => [
   <div
     id="mobile-menu"
     aria-hidden="true"
-    class="overflow-hidden transition-[max-height] duration-300 ease-in-out md:hidden"
-    style="max-height: 0px;"
+    class="fixed inset-0 -z-10 flex min-h-[100svh] flex-col bg-cream/98 px-6 opacity-0 pointer-events-none transition duration-300 md:hidden"
   >
-    <ul class="ml-auto mr-6 mt-2 flex w-fit min-w-44 list-none flex-col items-end gap-2 rounded-2xl border-2 border-primary bg-cream/95 px-4 py-4 shadow-[4px_4px_0_#f9a2b4]">
-      {allLinks.map(({ label, href }) => (
-        <li>
-          <a href={href} aria-current={isActive(href) ? 'page' : undefined} class:list={mobileLinkClass(href)}>
-            {label}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <nav aria-label="Menu movil" class="grid min-h-[100svh] place-items-center pb-10 pt-20">
+      <ul class="m-0 flex list-none flex-col items-center gap-4 p-0">
+        {allLinks.map(({ label, href }) => (
+          <li>
+            <a href={href} aria-current={isActive(href) ? 'page' : undefined} class:list={mobileLinkClass(href)}>
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   </div>
 </header>
 
@@ -109,13 +108,16 @@ const mobileLinkClass = (href: string) => [
 
     btn.setAttribute('aria-expanded', String(!isOpen));
     menu.setAttribute('aria-hidden', String(isOpen));
-    menu.style.maxHeight = isOpen ? '0px' : `${menu.scrollHeight}px`;
 
     if (!isOpen) {
+      menu.classList.remove('opacity-0', 'pointer-events-none', '-z-10');
+      menu.classList.add('opacity-100', 'pointer-events-auto', 'z-[60]');
       line1.style.transform = 'translateY(8px) rotate(45deg)';
       line2.style.opacity = '0';
       line3.style.transform = 'translateY(-8px) rotate(-45deg)';
     } else {
+      menu.classList.add('opacity-0', 'pointer-events-none', '-z-10');
+      menu.classList.remove('opacity-100', 'pointer-events-auto', 'z-[60]');
       line1.style.transform = '';
       line2.style.opacity = '';
       line3.style.transform = '';

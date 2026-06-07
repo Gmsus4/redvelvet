@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = 'redvelvet_pasteleria - Pasteles artesanales en Veracruz',
-  description = 'Pasteles y postres artesanales hechos con amor en Veracruz. Pedidos personalizados, mesas de postres y más.',
+  description = 'Pasteles y postres artesanales hechos con amor en Veracruz. Pedidos personalizados, mesas dulces y detalles para celebrar bonito.',
 } = Astro.props;
 ---
 
@@ -23,34 +23,37 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen flex flex-col antialiased">
-    <img src="/laterales/esquina-tl.png" alt="" class="w-40  lg:z-100 fixed hidden md:flex">
-    <img src="/laterales/esquina-tr.png" alt="" class="w-16  lg:z-100 fixed hidden md:flex top-40 right-0">
-    <img src="/laterales/esquina-bl.png" alt="" class="w-20  lg:z-100 fixed hidden md:flex bottom-0">
-    <img src="/laterales/esquina-br.png" alt="" class="w-24  lg:z-100 fixed hidden md:flex bottom-0 right-0">
-  
-    <!-- Izquierda -->
-    <img src="/izquierda/Cupcake.png" alt="" class="w-34 z-100 fixed hidden lg:flex bottom-[40%] left-24 2xl:left-32">
-    <img src="/izquierda/Taza2.png" alt="" class="w-34 z-100 fixed hidden lg:flex bottom-[60%] left-24 2xl:left-32">
-    <img src="/izquierda/Rama2.png" alt="" class="w-16 z-100 fixed hidden lg:flex bottom-[16%] left-24 2xl:left-32">
-    <img src="/izquierda/batidor.png" alt="" class="w-16 z-100 fixed hidden lg:flex bottom-[76%] left-24 2xl:left-22">
-    <img src="/izquierda/decoracion1.png" alt="" class="w-16 z-100 fixed hidden lg:flex bottom-[68%] left-4 2xl:left-8">
-    <img src="/izquierda/decoracion2.png" alt="" class="w-12 z-100 fixed hidden lg:flex bottom-[32%] left-24 2xl:left-58">
-    <img src="/izquierda/decoracion3.png" alt="" class="w-18 z-100 fixed hidden lg:flex bottom-[6%] left-24 2xl:left-28">
-    <img src="/izquierda/corazon1.png" alt="" class="w-6 z-100 fixed hidden lg:flex bottom-[16%] left-40 2xl:left-58">
-    <img src="/izquierda/corazon1.png" alt="" class="w-8 z-100 fixed hidden lg:flex bottom-[56%] left-10 2xl:left-10 rotate-45">
-    <img src="/izquierda/estrella.png" alt="" class="w-8 z-100 fixed hidden lg:flex bottom-[86%] left-44 2xl:left-50">
-    <img src="/izquierda/linea1.png" alt="" class="w-8 z-100 fixed hidden lg:flex bottom-[90%] left-40 2xl:left-44">
-    
-    <!-- Derecha -->
-    <img src="/derecha/decoracion1.png" alt="" class="w-16 z-100 fixed hidden lg:flex bottom-[32%] right-4 2xl:right-8">
-    <img src="/derecha/decoracion2.png" alt="" class="w-16 z-100 fixed hidden lg:flex bottom-[88%] right-4 2xl:right-8">
-    <img src="/derecha/corazon1.png" alt="" class="w-6 z-100 fixed hidden lg:flex bottom-[82%] right-14 2xl:right-34">
-    <img src="/derecha/corazon2.png" alt="" class="w-6 z-100 fixed hidden lg:flex bottom-[46%] right-10 2xl:right-20">
-    <img src="/derecha/corazon3.png" alt="" class="w-6 z-100 fixed hidden lg:flex bottom-[12%] right-25 2xl:right-50">
-    <img src="/derecha/relleno.png" alt="" class="w-32 z-100 fixed hidden lg:flex bottom-[52%] right-14 2xl:right-34">
-    <img src="/derecha/pastel.png" alt="" class="w-36 z-100 fixed hidden lg:flex bottom-[32%] right-14 2xl:right-34">
-    <img src="/derecha/rama.png" alt="" class="w-20 z-100 fixed hidden lg:flex bottom-[12%] right-14 2xl:right-30">
-    <slot />
+  <body class="min-h-screen overflow-x-hidden antialiased">
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 z-[60] select-none">
+      <img src="/laterales/esquina-tl.png" alt="" class="w-40 lg:z-100 fixed hidden xl:flex">
+      <img src="/laterales/esquina-tr.png" alt="" class="w-16 lg:z-100 fixed hidden xl:flex top-40 right-0">
+      <img src="/laterales/esquina-bl.png" alt="" class="w-20 lg:z-100 fixed hidden xl:flex bottom-0">
+      <img src="/laterales/esquina-br.png" alt="" class="w-24 lg:z-100 fixed hidden xl:flex bottom-0 right-0">
+
+      <img src="/izquierda/Cupcake.png" alt="" class="w-34 z-100 fixed hidden 2xl:flex bottom-[40%] left-24 2xl:left-32">
+      <img src="/izquierda/Taza2.png" alt="" class="w-34 z-100 fixed hidden 2xl:flex bottom-[60%] left-24 2xl:left-32">
+      <img src="/izquierda/Rama2.png" alt="" class="w-16 z-100 fixed hidden 2xl:flex bottom-[16%] left-24 2xl:left-32">
+      <img src="/izquierda/batidor.png" alt="" class="w-16 z-100 fixed hidden 2xl:flex bottom-[76%] left-24 2xl:left-22">
+      <img src="/izquierda/decoracion1.png" alt="" class="w-16 z-100 fixed hidden 2xl:flex bottom-[68%] left-4 2xl:left-8">
+      <img src="/izquierda/decoracion2.png" alt="" class="w-12 z-100 fixed hidden 2xl:flex bottom-[32%] left-24 2xl:left-58">
+      <img src="/izquierda/decoracion3.png" alt="" class="w-18 z-100 fixed hidden 2xl:flex bottom-[6%] left-24 2xl:left-28">
+      <img src="/izquierda/corazon1.png" alt="" class="w-6 z-100 fixed hidden 2xl:flex bottom-[16%] left-40 2xl:left-58">
+      <img src="/izquierda/corazon1.png" alt="" class="w-8 z-100 fixed hidden 2xl:flex bottom-[56%] left-10 2xl:left-10 rotate-45">
+      <img src="/izquierda/estrella.png" alt="" class="w-8 z-100 fixed hidden 2xl:flex bottom-[86%] left-44 2xl:left-50">
+      <img src="/izquierda/linea1.png" alt="" class="w-8 z-100 fixed hidden 2xl:flex bottom-[90%] left-40 2xl:left-44">
+
+      <img src="/derecha/decoracion1.png" alt="" class="w-16 z-100 fixed hidden 2xl:flex bottom-[32%] right-4 2xl:right-8">
+      <img src="/derecha/decoracion2.png" alt="" class="w-16 z-100 fixed hidden 2xl:flex bottom-[88%] right-4 2xl:right-8">
+      <img src="/derecha/corazon1.png" alt="" class="w-6 z-100 fixed hidden 2xl:flex bottom-[82%] right-14 2xl:right-34">
+      <img src="/derecha/corazon2.png" alt="" class="w-6 z-100 fixed hidden 2xl:flex bottom-[46%] right-10 2xl:right-20">
+      <img src="/derecha/corazon3.png" alt="" class="w-6 z-100 fixed hidden 2xl:flex bottom-[12%] right-25 2xl:right-50">
+      <img src="/derecha/relleno.png" alt="" class="w-32 z-100 fixed hidden 2xl:flex bottom-[52%] right-14 2xl:right-34">
+      <img src="/derecha/pastel.png" alt="" class="w-36 z-100 fixed hidden 2xl:flex bottom-[32%] right-14 2xl:right-34">
+      <img src="/derecha/rama.png" alt="" class="w-20 z-100 fixed hidden 2xl:flex bottom-[12%] right-14 2xl:right-30">
+    </div>
+
+    <div class="relative flex min-h-screen flex-col">
+      <slot />
+    </div>
   </body>
 </html>

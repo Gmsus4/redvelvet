@@ -43,17 +43,17 @@ const orderInfo = [
 
 <Layout title="Contacto - Redvelvet pastelería">
     <Navbar />
-    <main class="grid w-full place-items-center pt-34">
-        <div class="grid w-full max-w-xl place-items-center gap-10 px-6">
-            <div class="relative">
-                <img src="/mujer.png" alt="" class="w-70">
-                <img src="/pastel.png" alt="" class="w-24 absolute bottom-0 right-1/2">
-                <img src="/gato.png" alt="" class="w-40 absolute bottom-0 -left-22">
-                <img src="/florero.png" alt="" class="w-16 absolute bottom-0 -right-8">
+    <main class="grid w-full place-items-center px-6 pb-6 pt-32 md:pt-36">
+        <div class="grid w-full max-w-2xl place-items-center gap-10">
+            <div class="relative h-64 w-full max-w-sm">
+                <img src="/mujer.png" alt="" class="absolute bottom-0 left-1/2 w-64 -translate-x-1/2">
+                <img src="/pastel.png" alt="" class="absolute bottom-0 left-1/2 w-22 -translate-x-28">
+                <img src="/gato.png" alt="" class="absolute bottom-0 left-0 w-34 sm:-left-8">
+                <img src="/florero.png" alt="" class="absolute bottom-0 right-2 w-14 sm:-right-4">
             </div>
 
-            <div class="flex flex-col gap-4">
-                <h1 class="font-[Caveat] text-5xl md:text-6xl text-left w-full text-primary">Contacto.</h1>
+            <div class="flex w-full flex-col gap-4">
+                <h1 class="w-full text-left font-[Caveat] text-5xl text-primary md:text-6xl">Contacto.</h1>
                 <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Agenda tu pedido, resuelve dudas o revisa nuestras redes sociales. Si tienes referencias o temática, compártelas desde el primer mensaje.</p>
                 <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Para cotizar más rápido, incluye la fecha, número aproximado de personas, producto o idea, colores y referencias que tengas.</p>
             </div>
@@ -62,7 +62,7 @@ const orderInfo = [
                 href={orderFormUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="rounded-full bg-primary px-6 py-3 text-base font-black text-white shadow-[3px_3px_0_#f9a2b4] transition hover:bg-primary/90"
+                class="rounded-full bg-primary px-7 py-3 text-base font-black text-white shadow-[0_14px_34px_rgb(239_47_127_/_0.25)] transition hover:-translate-y-0.5 hover:bg-primary/90"
             >
                 Formulario para agendar
             </a>
@@ -73,9 +73,9 @@ const orderInfo = [
                         href={url}
                         target={url.startsWith("http") ? "_blank" : undefined}
                         rel={url.startsWith("http") ? "noopener noreferrer" : undefined}
-                        class="group flex items-center gap-4 rounded-2xl border-2 border-primary/20 bg-cream px-5 py-4 text-primary transition hover:-translate-y-0.5 hover:border-primary hover:shadow-[3px_3px_0_#f9a2b4]"
+                        class="group flex items-center gap-4 rounded-3xl border border-primary/15 bg-white/60 px-5 py-4 text-primary shadow-[0_12px_30px_rgb(239_47_127_/_0.08)] backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-primary/35 hover:bg-white"
                     >
-                        <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-primary/20 bg-white/60 text-primary [&_svg]:h-5 [&_svg]:w-5">
+                        <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-secondary/25 text-primary [&_svg]:h-5 [&_svg]:w-5">
                             <span set:html={icon} />
                         </span>
                         <div class="flex min-w-0 flex-col">
@@ -88,7 +88,7 @@ const orderInfo = [
 
             <div class="flex w-full flex-wrap gap-2">
                 {orderInfo.map((detail) => (
-                    <span class="rounded-full bg-secondary/25 px-4 py-2 text-sm font-black text-primary">
+                    <span class="rounded-full border border-primary/15 bg-white/60 px-4 py-2 text-sm font-black text-primary shadow-[0_8px_22px_rgb(239_47_127_/_0.08)]">
                         {detail}
                     </span>
                 ))}
