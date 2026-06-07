@@ -1,0 +1,99 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+
+const orderFormUrl = "#";
+const whatsappUrl = "https://wa.me/5215512345678?text=Hola%2C%20quiero%20agendar%20un%20pedido";
+
+const contactInfo = [
+  {
+    label: "Instagram",
+    value: "@redvelvet_pasteleria",
+    url: "#",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>`,
+  },
+  {
+    label: "Facebook",
+    value: "RedVelvet pastelería",
+    url: "#",
+    icon: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.1 21v-7.4h2.48l.38-2.88H14.1V8.88c0-.83.23-1.4 1.43-1.4h1.52V4.9c-.26-.04-1.17-.11-2.23-.11-2.2 0-3.7 1.34-3.7 3.8v2.13H8.63v2.88h2.49V21h2.98Z"/></svg>`,
+  },
+  {
+    label: "Teléfono",
+    value: "+52 55 1234 5678",
+    url: whatsappUrl,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v2.4a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3 4.2 2 2 0 0 1 5 2h2.4a2 2 0 0 1 2 1.7l.4 2.4a2 2 0 0 1-.6 1.8L8.2 9a14 14 0 0 0 6.8 6.8l1.1-1.1a2 2 0 0 1 1.8-.6l2.4.4a2 2 0 0 1 1.7 2Z"/></svg>`,
+  },
+  {
+    label: "Correo",
+    value: "RedVelvetpasteleria19@gmail.com",
+    url: "mailto:RedVelvetpasteleria19@gmail.com",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2 7 9.1 6.1a1.5 1.5 0 0 0 1.8 0L22 7"/></svg>`,
+  },
+];
+
+const orderInfo = [
+  "Fecha del evento o entrega",
+  "Número aproximado de personas",
+  "Producto o idea",
+  "Colores, temática o referencias",
+];
+---
+
+<Layout title="Contacto - Redvelvet pastelería">
+    <Navbar />
+    <main class="grid w-full place-items-center pt-34">
+        <div class="grid w-full max-w-xl place-items-center gap-10 px-6">
+            <div class="relative">
+                <img src="/mujer.png" alt="" class="w-70">
+                <img src="/pastel.png" alt="" class="w-24 absolute bottom-0 right-1/2">
+                <img src="/gato.png" alt="" class="w-40 absolute bottom-0 -left-22">
+                <img src="/florero.png" alt="" class="w-16 absolute bottom-0 -right-8">
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <h1 class="font-[Caveat] text-5xl md:text-6xl text-left w-full text-primary">Contacto.</h1>
+                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Agenda tu pedido, resuelve dudas o revisa nuestras redes sociales. Si tienes referencias o temática, compártelas desde el primer mensaje.</p>
+                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Para cotizar más rápido, incluye la fecha, número aproximado de personas, producto o idea, colores y referencias que tengas.</p>
+            </div>
+
+            <a
+                href={orderFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full bg-primary px-6 py-3 text-base font-black text-white shadow-[3px_3px_0_#f9a2b4] transition hover:bg-primary/90"
+            >
+                Formulario para agendar
+            </a>
+
+            <div class="grid w-full grid-cols-1 gap-3">
+                {contactInfo.map(({ label, value, url, icon }) => (
+                    <a
+                        href={url}
+                        target={url.startsWith("http") ? "_blank" : undefined}
+                        rel={url.startsWith("http") ? "noopener noreferrer" : undefined}
+                        class="group flex items-center gap-4 rounded-2xl border-2 border-primary/20 bg-cream px-5 py-4 text-primary transition hover:-translate-y-0.5 hover:border-primary hover:shadow-[3px_3px_0_#f9a2b4]"
+                    >
+                        <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-primary/20 bg-white/60 text-primary [&_svg]:h-5 [&_svg]:w-5">
+                            <span set:html={icon} />
+                        </span>
+                        <div class="flex min-w-0 flex-col">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-softcopy">{label}</span>
+                            <span class="break-words text-sm font-bold text-copy">{value}</span>
+                        </div>
+                    </a>
+                ))}
+            </div>
+
+            <div class="flex w-full flex-wrap gap-2">
+                {orderInfo.map((detail) => (
+                    <span class="rounded-full bg-secondary/25 px-4 py-2 text-sm font-black text-primary">
+                        {detail}
+                    </span>
+                ))}
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>

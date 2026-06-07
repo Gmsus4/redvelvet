@@ -1,0 +1,26 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <Navbar />
+    <main class="grid w-full place-items-center pt-34 relative">
+        <div class="grid w-full max-w-xl place-items-center gap-10 px-6">
+            <div class="relative">
+                <img src="/mujer.png" alt="" class="w-70">
+                <img src="/pastel.png" alt="" class="w-24 absolute bottom-0 right-1/2">
+                <img src="/gato.png" alt="" class="w-40 absolute bottom-0 -left-22">
+                <img src="/florero.png" alt="" class="w-16 absolute bottom-0 -right-8">
+            </div>
+            <div class="flex flex-col gap-4">
+                <h1 class="font-[Caveat] text-5xl md:text-6xl text-left w-full text-primary">Hola, soy Ari.</h1>
+                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Soy quien está detrás de Redvelvet: preparo cada pastel y cada postrecito con mucho detalle, desde la receta hasta la presentación final.</p>
+                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Este proyecto nació hace más de 4 años como una idea escolar y poco a poco se convirtió en algo mucho más grande. Hoy estudio gastronomía para seguir aprendiendo, mejorar mis técnicas y ofrecerles un servicio cada vez más bonito y cuidado.</p>
+                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Lo que más disfruto es conocerlos en persona, escuchar sus ideas y ser parte de momentos importantes: cumpleaños, reuniones, expos, entregas y celebraciones que se vuelven recuerdos dulces.</p>
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>

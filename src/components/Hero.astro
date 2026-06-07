@@ -26,44 +26,21 @@ const socials = [
 ];
 ---
 
-<section class="relative grid min-h-screen w-full place-items-center overflow-hidden bg-cream px-5 pb-8 pt-20">
-  <div class="relative grid min-h-[720px] w-full max-w-6xl place-items-center sm:min-h-[760px] lg:min-h-[720px]">
-    <img
-      src="/fondo3.png"
-      alt=""
-      class="pointer-events-none absolute left-1/2 top-8 hidden w-[980px] -translate-x-1/2 select-none lg:block"
-      loading="eager"
-    />
-
-    <img
-      src="/fondo4.png"
-      alt=""
-      class="pointer-events-none absolute bottom-14 left-1/2 w-[min(1120px,132vw)] -translate-x-1/2 select-none md:bottom-8 lg:bottom-2"
-      loading="eager"
-    />
-
-    <div class="relative z-20 mx-auto flex max-w-2xl flex-col items-center gap-8 px-2 text-center md:-mt-14">
-      <h1 class="text-balance text-4xl font-black leading-[1.08] text-primary sm:text-5xl md:text-6xl">
-        Pastelería red velvet,
-        <span class="block text-primary/60">postres artesanales</span>
-        <span class="block text-primary/60">para celebrar bonito.</span>
-      </h1>
-
-      <div class="flex w-full flex-col items-center justify-center gap-5 sm:w-auto sm:flex-row">
-        <a
-          href="/#contacto"
-          class="rounded-full bg-primary px-14 py-3 text-center text-base font-black text-white shadow-[0_8px_20px_rgba(239,47,127,0.24)] transition hover:-translate-y-0.5 hover:bg-primary/90"
-        >
-          Haz tu pedido
-        </a>
-        <div class="text-center text-sm font-bold leading-5 sm:text-left">
-          <p class="text-primary">Fresco y delicioso</p>
-          <p class="text-primary/60">Desde 2020</p>
+<section class="grid place-items-center h-screen w-full">
+  <div class="max-w-5xl relative bg-amber-600/05 w-full">
+    <img src="/fondo3.png" alt="" class="absolute -top-50 z-10 hidden md:flex">
+    <img src="/fondo4.png" alt="" class="absolute -bottom-40 z-10">
+    <div class="flex flex-col items-center gap-10 ">
+      <p class="text-primary z-20 font-[caveat] text-5xl text-center">Hello! I'm Belle, <br>I'm a designer who <br>makes magic through <br> product & brand.</p>
+      <div class="z-20 flex items-center gap-4">
+        <a href="" class="px-6 py-2 bg-primary rounded-full text-white text-sm">dsd</a>
+        <div class="z-20 flex flex-col ">
+          <span class="z-20 text-primary font-bold text-center md:text-left">Fresco y delicioso</span>
+          <span class="text-center z-20 text-softcopy text-sm text-center md:text-left">desde 2020</span>
         </div>
       </div>
     </div>
-
-    <div class="absolute bottom-0 left-1/2 z-30 flex w-full max-w-xl -translate-x-1/2 flex-wrap items-center justify-center gap-3 px-2">
+    <div class="absolute lg:-bottom-40 -bottom-70 left-1/2 z-30 flex w-full max-w-xl -translate-x-1/2 flex-wrap items-center justify-center gap-3 px-2">
       {socials.map((social) => (
         <a
           href={social.url}
@@ -79,5 +56,6 @@ const socials = [
         </a>
       ))}
     </div>
+  </div>
   </div>
 </section>

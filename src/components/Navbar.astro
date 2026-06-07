@@ -1,111 +1,90 @@
 ---
-// Navbar.astro — Responsive + hamburguesa funcional
-
 interface NavLink {
   label: string;
   href: string;
-  muted?: boolean;
 }
 
 const leftLinks: NavLink[] = [
-  { label: "Work",  href: "/work"  },
-  { label: "Craft", href: "/craft" },
+  { label: 'Productos', href: '/products' },
+  { label: 'Eventos', href: '/events' },
 ];
 
 const rightLinks: NavLink[] = [
-  { label: "About",  href: "/about"  },
-  { label: "Resume", href: "/resume" },
+  { label: 'Contacto', href: '/contact' },
+  { label: 'Conócenos', href: '/about' },
 ];
 
 const allLinks = [...leftLinks, ...rightLinks];
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => currentPath === (href.replace(/\/$/, '') || '/');
+
+const desktopLinkClass = (href: string) => [
+  'relative rounded-full px-3 py-1.5 text-base font-bold tracking-wide transition duration-150',
+  isActive(href)
+    ? 'border-2 border-primary bg-primary text-white shadow-[3px_3px_0_#f9a2b4]'
+    : 'text-copy hover:bg-secondary/45 hover:text-primary',
+];
+
+const mobileLinkClass = (href: string) => [
+  'block rounded-full px-4 py-2 text-base font-black no-underline transition duration-150',
+  isActive(href)
+    ? 'border-2 border-primary bg-primary text-white shadow-[3px_3px_0_#f9a2b4]'
+    : 'text-copy hover:bg-secondary/45 hover:text-primary',
+];
 ---
 
-<header class="fixed left-0 right-0 top-2 z-50 bg-transparent font-sans">
-
-  <!-- ── Barra principal ── -->
-  <nav class="max-w-5xl mx-auto px-6 h-16 relative flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
-
-    <!-- Links izquierdos — ocultos en mobile -->
-    <ul class="hidden md:flex items-center justify-end gap-8 list-none m-0 p-0">
-      {leftLinks.map(({ label, href, muted }) => (
+<header class="fixed left-0 right-0 top-0 z-50 bg-cream/95 pt-2 font-sans backdrop-blur">
+  <nav class="relative mx-auto flex h-16 max-w-5xl items-center justify-between px-6 md:grid md:grid-cols-[1fr_auto_1fr]">
+    <ul class="m-0 hidden list-none items-center justify-end gap-5 p-0 md:flex">
+      {leftLinks.map(({ label, href }) => (
         <li>
-          <a
-            href={href}
-            class:list={[
-              "text-base font-medium tracking-wide relative transition-colors duration-150",
-              "after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-px",
-              "after:transition-all after:duration-150 hover:after:w-full",
-              muted
-                ? "text-neutral-400 hover:text-neutral-900 after:bg-neutral-900"
-                : "text-primary/70 hover:text-primary",
-            ]}
-          >
+          <a href={href} aria-current={isActive(href) ? 'page' : undefined} class:list={desktopLinkClass(href)}>
             {label}
           </a>
         </li>
       ))}
     </ul>
 
-    <!-- Brand: centrado absoluto en mobile, columna central en desktop -->
     <a
       href="/"
-      class="font-[Caveat] text-[3rem] font-bold text-primary no-underline
-             leading-none tracking-tight text-center
-             absolute left-1/2 -translate-x-1/2
-             md:static md:translate-x-0 md:px-10
-             hover:opacity-60 transition-opacity duration-150"
+      class="absolute left-1/2 -translate-x-1/2 text-center font-[Caveat] text-[3rem] font-bold leading-none tracking-tight text-primary no-underline transition-opacity duration-150 hover:opacity-70 md:static md:translate-x-0 md:px-10"
     >
       Redvelvet
     </a>
 
-    <!-- Links derechos — ocultos en mobile -->
-    <ul class="hidden md:flex items-center justify-start gap-8 list-none m-0 p-0">
+    <ul class="m-0 hidden list-none items-center justify-start gap-5 p-0 md:flex">
       {rightLinks.map(({ label, href }) => (
         <li>
-          <a
-            href={href}
-            class="text-base font-medium tracking-wide text-primary/70 hover:text-primary relative"
-          >
+          <a href={href} aria-current={isActive(href) ? 'page' : undefined} class:list={desktopLinkClass(href)}>
             {label}
           </a>
         </li>
       ))}
     </ul>
 
-    <!-- Hamburguesa — visible solo en mobile, en col 3 -->
     <button
       id="hamburger-btn"
       aria-label="Abrir menú"
       aria-expanded="false"
       aria-controls="mobile-menu"
-      class="md:hidden col-start-3 justify-self-end flex flex-col justify-between
-             w-6 h-[14px] bg-transparent border-0 cursor-pointer p-0"
+      class="ml-auto flex h-[18px] w-7 cursor-pointer flex-col justify-between border-0 bg-transparent p-0 md:hidden"
     >
-      <span id="h-line1" class="block w-full h-px bg-neutral-900 rounded origin-center transition-all duration-300"></span>
-      <span id="h-line2" class="block w-full h-px bg-neutral-900 rounded transition-all duration-300"></span>
-      <span id="h-line3" class="block w-full h-px bg-neutral-900 rounded origin-center transition-all duration-300"></span>
+      <span id="h-line1" class="block h-0.5 w-full origin-center rounded bg-primary transition-all duration-300"></span>
+      <span id="h-line2" class="block h-0.5 w-full rounded bg-primary transition-all duration-300"></span>
+      <span id="h-line3" class="block h-0.5 w-full origin-center rounded bg-primary transition-all duration-300"></span>
     </button>
   </nav>
 
-  <!-- ── Menú mobile desplegable ── -->
   <div
     id="mobile-menu"
     aria-hidden="true"
-    class="md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out"
+    class="overflow-hidden transition-[max-height] duration-300 ease-in-out md:hidden"
     style="max-height: 0px;"
   >
-    <ul class="flex flex-col items-center gap-6 list-none m-0 py-6 px-0 border-t border-neutral-100">
-      {allLinks.map(({ label, href, muted }) => (
+    <ul class="ml-auto mr-6 mt-2 flex w-fit min-w-44 list-none flex-col items-end gap-2 rounded-2xl border-2 border-primary bg-cream/95 px-4 py-4 shadow-[4px_4px_0_#f9a2b4]">
+      {allLinks.map(({ label, href }) => (
         <li>
-          <a
-            href={href}
-            class:list={[
-              "text-base font-light no-underline transition-colors duration-150",
-              muted
-                ? "text-neutral-400 hover:text-neutral-900"
-                : "text-neutral-900 hover:text-neutral-400",
-            ]}
-          >
+          <a href={href} aria-current={isActive(href) ? 'page' : undefined} class:list={mobileLinkClass(href)}>
             {label}
           </a>
         </li>
@@ -119,29 +98,26 @@ const allLinks = [...leftLinks, ...rightLinks];
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet" />
 
 <script>
-  const btn   = document.getElementById('hamburger-btn') as HTMLButtonElement;
-  const menu  = document.getElementById('mobile-menu')  as HTMLDivElement;
-  const line1 = document.getElementById('h-line1')      as HTMLSpanElement;
-  const line2 = document.getElementById('h-line2')      as HTMLSpanElement;
-  const line3 = document.getElementById('h-line3')      as HTMLSpanElement;
+  const btn = document.getElementById('hamburger-btn') as HTMLButtonElement;
+  const menu = document.getElementById('mobile-menu') as HTMLDivElement;
+  const line1 = document.getElementById('h-line1') as HTMLSpanElement;
+  const line2 = document.getElementById('h-line2') as HTMLSpanElement;
+  const line3 = document.getElementById('h-line3') as HTMLSpanElement;
 
   btn.addEventListener('click', () => {
     const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
     btn.setAttribute('aria-expanded', String(!isOpen));
-    menu.setAttribute('aria-hidden',  String(isOpen));
-
-    // Abrir / cerrar con scrollHeight real
+    menu.setAttribute('aria-hidden', String(isOpen));
     menu.style.maxHeight = isOpen ? '0px' : `${menu.scrollHeight}px`;
 
-    // Hamburguesa → X
     if (!isOpen) {
-      line1.style.transform = 'translateY(7px) rotate(45deg)';
-      line2.style.opacity   = '0';
-      line3.style.transform = 'translateY(-7px) rotate(-45deg)';
+      line1.style.transform = 'translateY(8px) rotate(45deg)';
+      line2.style.opacity = '0';
+      line3.style.transform = 'translateY(-8px) rotate(-45deg)';
     } else {
       line1.style.transform = '';
-      line2.style.opacity   = '';
+      line2.style.opacity = '';
       line3.style.transform = '';
     }
   });

@@ -1,0 +1,95 @@
+---
+import Footer from "../components/Footer.astro";
+import Recommendations from "../components/Recommendations.astro";
+import Navbar from "../components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+
+const products = [
+  {
+    name: "Mostachón",
+    description: "Capas de galleta crujiente, crema y fresas frescas.",
+    image: "/products/mostachon.jpg",
+  },
+  {
+    name: "Donas con toppings",
+    description: "Donas esponjosas con tus toppings favoritos. Tú eliges.",
+    image: "/products/donas.jpg",
+  },
+  {
+    name: "Mini cakes",
+    description: "Pastelitos individuales, perfectos para cualquier antojo.",
+    image: "/products/minicakes.jpg",
+  },
+  {
+    name: "New York cookies",
+    description: "Galletas grandes, suaves por dentro y crujientes por fuera.",
+    image: "/products/cookies.jpg",
+  },
+  {
+    name: "Cupcakes",
+    description: "Esponjosos y decorados con amor, en sabores que enamoran.",
+    image: "/products/cupcakes.jpg",
+  },
+  {
+    name: "Brownies con toppings",
+    description: "Brownies fudgy con tus toppings favoritos.",
+    image: "/products/brownies.jpg",
+  },
+  {
+    name: "Fresas con chocolate",
+    description: "Fresas frescas cubiertas de chocolate y decoradas a mano.",
+    image: "/products/fresas.jpg",
+  },
+  {
+    name: "Pasteles personalizados",
+    description: "Diseños únicos para fechas especiales y momentos inolvidables.",
+    image: "/products/pasteles.jpg",
+  },
+  {
+    name: "Cheesecakes",
+    description: "Suaves, cremosos y con toppings que los hacen irresistibles.",
+    image: "/products/cheesecake.jpg",
+  },
+];
+---
+
+<Layout title="Productos - Redvelvet pastelería">
+    <Navbar />
+    <main class="grid w-full place-items-center pt-34">
+        <div class="grid w-full max-w-xl place-items-center gap-10 px-6">
+            <div class="relative">
+                <img src="/mujer.png" alt="" class="w-70">
+                <img src="/pastel.png" alt="" class="w-24 absolute bottom-0 right-1/2">
+                <img src="/gato.png" alt="" class="w-40 absolute bottom-0 -left-22">
+                <img src="/florero.png" alt="" class="w-16 absolute bottom-0 -right-8">
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <h1 class="font-[Caveat] text-5xl md:text-6xl text-left w-full text-primary">Nuestros productos.</h1>
+                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Hechos con ingredientes de calidad, con mucho cariño y ese toque especial que los hace inolvidables.</p>
+                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Aquí puedes encontrar opciones para antojos, detalles, reuniones o celebraciones más especiales.</p>
+            </div>
+
+            <div class="grid w-full grid-cols-2 gap-x-6 gap-y-14 sm:grid-cols-3">
+                {products.map(({ name, description, image }) => (
+                    <div class="group relative flex flex-col items-center gap-3 text-center">
+                        <img src="/corazon.png" alt="" class="absolute right-2 w-6 rotate-6" />
+                        <div class="relative h-32 w-32 shrink-0 sm:h-36 sm:w-36">
+                            <div class="h-full w-full overflow-hidden rounded-full border-2 border-primary/15 shadow-[3px_3px_0_#f9a2b4] transition group-hover:-translate-y-1 group-hover:shadow-[4px_4px_0_#f9a2b4]">
+                                <img src={image} alt={name} class="h-full w-full object-cover" />
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <p class="text-sm font-black leading-tight text-primary">{name.toUpperCase()}</p>
+                            <p class="text-xs font-bold leading-5 text-softcopy">{description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <Recommendations />
+        </div>
+    </main>
+    <Footer />
+</Layout>

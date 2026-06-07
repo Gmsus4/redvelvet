@@ -1,0 +1,61 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+
+const gallery = [
+  { src: "/products/pasteles.jpg", alt: "Pastel personalizado para evento" },
+  { src: "/products/mostachon.jpg", alt: "Mesa de postres con mostachón" },
+  { src: "/products/cheesecake.jpg", alt: "Pastel decorado para celebración" },
+  { src: "/products/cupcakes.jpg", alt: "Cupcakes y postres para mesa dulce" },
+  { src: "/products/fresas.jpg", alt: "Fresas cubiertas con chocolate" },
+];
+
+const options = [
+  "Pasteles personalizados",
+  "Mesa dulce",
+  "Postres individuales",
+  "Diseño por temática",
+];
+---
+
+<Layout title="Eventos - Redvelvet pastelería">
+    <Navbar />
+    <main class="grid w-full place-items-center pt-34">
+        <div class="grid w-full max-w-xl place-items-center gap-10 px-6">
+            <div class="relative">
+                <img src="/mujer.png" alt="" class="w-70">
+                <img src="/pastel.png" alt="" class="w-24 absolute bottom-0 right-1/2">
+                <img src="/gato.png" alt="" class="w-40 absolute bottom-0 -left-22">
+                <img src="/florero.png" alt="" class="w-16 absolute bottom-0 -right-8">
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <h1 class="font-[Caveat] text-5xl md:text-6xl text-left w-full text-primary">Eventos y mesas dulces.</h1>
+                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Contamos con mesa de postres y pasteles para eventos. Podemos preparar una propuesta dulce para cumpleaños, bodas, reuniones, aniversarios y celebraciones especiales.</p>
+                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Las imágenes son referencia de productos que podemos adaptar a tu celebración. Cuéntanos la fecha, número de invitados, estilo del evento y sabores que tienes en mente.</p>
+            </div>
+
+            <div class="flex w-full flex-wrap gap-2">
+                {options.map((option) => (
+                    <span class="rounded-full bg-secondary/25 px-4 py-2 text-sm font-black text-primary">
+                        {option}
+                    </span>
+                ))}
+            </div>
+
+            <div class="grid w-full grid-cols-2 gap-3 sm:grid-cols-3">
+                {gallery.map((image) => (
+                    <figure class="overflow-hidden rounded-3xl bg-secondary/25 p-1">
+                        <img src={image.src} alt={image.alt} class="aspect-square h-full w-full rounded-[1.25rem] object-cover" />
+                    </figure>
+                ))}
+            </div>
+
+            <a href="/contact" class="rounded-full bg-primary px-6 py-3 text-base font-black text-white shadow-[3px_3px_0_#f9a2b4] transition hover:bg-primary/90">
+                Cotizar evento
+            </a>
+        </div>
+    </main>
+    <Footer />
+</Layout>
