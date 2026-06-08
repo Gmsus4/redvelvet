@@ -11,7 +11,7 @@ const leftLinks: NavLink[] = [
 
 const rightLinks: NavLink[] = [
   { label: 'Contacto', href: '/contact' },
-  { label: 'Conocenos', href: '/about' },
+  { label: 'Conócenos', href: '/about' },
 ];
 
 const allLinks = [...leftLinks, ...rightLinks];
@@ -31,7 +31,7 @@ const mobileLinkClass = (href: string) => [
 ];
 ---
 
-<header class="fixed left-0 right-0 top-0 z-50 bg-cream/95 pt-2 font-sans backdrop-blur">
+<header class="fixed left-0 right-0 top-0 md:z-50 z-1000 bg-cream/95 pt-2 font-sans backdrop-blur">
   <nav class="relative mx-auto flex h-16 max-w-5xl items-center justify-between px-6 md:grid md:grid-cols-[1fr_auto_1fr]">
     <ul class="m-0 hidden list-none items-center justify-end gap-5 p-0 md:flex">
       {leftLinks.map(({ label, href }) => (
@@ -76,7 +76,7 @@ const mobileLinkClass = (href: string) => [
   <div
     id="mobile-menu"
     aria-hidden="true"
-    class="fixed inset-0 -z-10 flex min-h-[100svh] flex-col bg-cream/98 px-6 opacity-0 pointer-events-none transition duration-300 md:hidden"
+    class="fixed inset-0 flex min-h-[100svh] flex-col bg-cream/98 px-6 opacity-0 pointer-events-none transition duration-300 md:hidden"
   >
     <nav aria-label="Menu movil" class="grid min-h-[100svh] place-items-center pb-10 pt-20">
       <ul class="m-0 flex list-none flex-col items-center gap-4 p-0">
@@ -115,12 +115,14 @@ const mobileLinkClass = (href: string) => [
       line1.style.transform = 'translateY(8px) rotate(45deg)';
       line2.style.opacity = '0';
       line3.style.transform = 'translateY(-8px) rotate(-45deg)';
+      document.body.style.overflow = 'hidden';
     } else {
       menu.classList.add('opacity-0', 'pointer-events-none', '-z-10');
       menu.classList.remove('opacity-100', 'pointer-events-auto', 'z-[60]');
       line1.style.transform = '';
       line2.style.opacity = '';
       line3.style.transform = '';
+      document.body.style.overflow = '';
     }
   });
 </script>
