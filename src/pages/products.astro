@@ -5,91 +5,66 @@ import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 
 const products = [
-  {
-    name: "Mostachón",
-    description: "Capas de galleta crujiente, crema y fresas frescas.",
-    image: "/products/mostachon.jpg",
-  },
-  {
-    name: "Donas con toppings",
-    description: "Donas esponjosas con tus toppings favoritos. Tú eliges.",
-    image: "/products/donas.jpg",
-  },
-  {
-    name: "Mini cakes",
-    description: "Pastelitos individuales, perfectos para cualquier antojo.",
-    image: "/products/minicakes.jpg",
-  },
-  {
-    name: "New York cookies",
-    description: "Galletas grandes, suaves por dentro y crujientes por fuera.",
-    image: "/products/cookies.jpg",
-  },
-  {
-    name: "Cupcakes",
-    description: "Esponjosos y decorados con amor, en sabores que enamoran.",
-    image: "/products/cupcakes.jpg",
-  },
-  {
-    name: "Brownies con toppings",
-    description: "Brownies fudgy con tus toppings favoritos.",
-    image: "/products/brownies.jpg",
-  },
-  {
-    name: "Fresas con chocolate",
-    description: "Fresas frescas cubiertas de chocolate y decoradas a mano.",
-    image: "/products/fresas.jpg",
-  },
-  {
-    name: "Pasteles personalizados",
-    description: "Diseños únicos para fechas especiales y momentos inolvidables.",
-    image: "/products/pasteles.jpg",
-  },
-  {
-    name: "Cheesecakes",
-    description: "Suaves, cremosos y con toppings que los hacen irresistibles.",
-    image: "/products/cheesecake.jpg",
-  },
+  { name: "Mostachon", description: "Galleta crujiente, crema y fresas frescas.", image: "/products/mostachon.jpg" },
+  { name: "Donas con toppings", description: "Esponjosas y decoradas a tu gusto.", image: "/products/donas.jpg" },
+  { name: "Mini cakes", description: "Pastelitos individuales para cualquier antojo.", image: "/products/minicakes.jpg" },
+  { name: "New York cookies", description: "Grandes, suaves por dentro y crujientes por fuera.", image: "/products/cookies.jpg" },
+  { name: "Cupcakes", description: "Decorados a mano en sabores que enamoran.", image: "/products/cupcakes.jpg" },
+  { name: "Brownies", description: "Fudgy, chocolatosos y con toppings.", image: "/products/brownies.jpg" },
+  { name: "Fresas con chocolate", description: "Frescas, cubiertas y decoradas con detalle.", image: "/products/fresas.jpg" },
+  { name: "Pasteles personalizados", description: "Disenos especiales para celebrar bonito.", image: "/products/pasteles.jpg" },
+  { name: "Cheesecakes", description: "Cremosos y con toppings irresistibles.", image: "/products/cheesecake.jpg" },
 ];
 ---
 
-<Layout title="Productos - Redvelvet pastelería">
-    <Navbar />
-    <main class="grid w-full place-items-center px-6 pb-6 pt-32 md:pt-36">
-        <div class="grid w-full max-w-2xl place-items-center gap-10">
-            <div class="relative h-64 w-full max-w-sm">
-                <img src="/mujer.png" alt="" class="absolute bottom-0 left-1/2 w-64 -translate-x-1/2">
-                <img src="/pastel.png" alt="" class="absolute bottom-0 left-1/2 w-22 -translate-x-28">
-                <img src="/gato.png" alt="" class="absolute bottom-0 left-0 w-34 sm:-left-8">
-                <img src="/florero.png" alt="" class="absolute bottom-0 right-2 w-14 sm:-right-4">
-            </div>
-
-            <div class="flex w-full flex-col gap-4">
-                <h1 class="w-full text-left font-[Caveat] text-5xl text-primary md:text-6xl">Nuestros productos.</h1>
-                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Hechos con ingredientes de calidad, con mucho cariño y ese toque especial que los hace inolvidables.</p>
-                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Aquí puedes encontrar opciones para antojos, detalles, reuniones o celebraciones más especiales.</p>
-            </div>
-
-            <div class="grid w-full grid-cols-2 gap-x-7 gap-y-14 sm:grid-cols-3 md:gap-x-10">
-                {products.map(({ name, description, image }) => (
-                    <div class="group relative flex flex-col items-center gap-3 text-center">
-                        <img src="/corazon.png" alt="" class="absolute right-3 top-0 w-5 rotate-6 opacity-90" />
-                        <div class="relative h-32 w-32 shrink-0 sm:h-36 sm:w-36">
-                            <div class="h-full w-full overflow-hidden rounded-full border border-primary/15 bg-white shadow-[0_12px_30px_rgb(239_47_127_/_0.12)] transition group-hover:-translate-y-1 group-hover:shadow-[0_16px_34px_rgb(239_47_127_/_0.18)]">
-                                <img src={image} alt={name} class="h-full w-full object-cover" />
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col gap-1">
-                            <p class="text-sm font-black leading-tight text-primary">{name.toUpperCase()}</p>
-                            <p class="text-xs font-bold leading-5 text-softcopy">{description}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <Recommendations />
+<Layout title="Productos - Redvelvet pasteleria">
+  <Navbar />
+  <main class="grid w-full place-items-center px-6 pb-10 pt-28 md:px-10 md:pt-34">
+    <div class="grid w-full max-w-6xl gap-14">
+      <section class="grid gap-10 md:grid-cols-[0.95fr_1.05fr] md:items-center">
+        <div class="flex flex-col items-center text-center md:items-start md:text-left">
+          <p class="mb-4 rounded-full bg-secondary/25 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
+            Catalogo dulce
+          </p>
+          <h1 class="max-w-[12ch] font-hero text-[clamp(2.8rem,8vw,5.25rem)] font-normal leading-[0.95] text-secondary md:max-w-[11ch]">
+            <span class="text-primary">Productos</span><br />
+            para antojos y celebraciones.
+          </h1>
+          <p class="mt-6 max-w-md text-base font-bold leading-8 text-copy md:text-lg">
+            Hechos con ingredientes de calidad, mucho carino y ese toque especial que los hace inolvidables.
+          </p>
         </div>
-    </main>
-    <Footer />
+
+        <div class="relative mx-auto grid w-full max-w-[30rem] place-items-center">
+          <div class="absolute inset-x-8 bottom-0 top-10 rounded-[2.5rem] bg-secondary/18"></div>
+          <figure class="relative z-10 w-[78%] overflow-hidden rounded-[2rem] border border-primary/12 bg-white p-2 shadow-[0_22px_50px_rgb(239_47_127_/_0.16)]">
+            <img src="/products/pasteles.jpg" alt="Pastel personalizado Redvelvet" class="aspect-[4/5] w-full rounded-[1.5rem] object-cover" />
+          </figure>
+          <figure class="absolute bottom-10 left-2 z-20 w-[34%] overflow-hidden rounded-full border-4 border-cream bg-white">
+            <img src="/products/fresas.jpg" alt="Fresas con chocolate" class="aspect-square w-full object-cover" />
+          </figure>
+          <figure class="absolute bottom-4 right-4 z-20 w-[36%] overflow-hidden rounded-full border-4 border-cream bg-white">
+            <img src="/products/cupcakes.jpg" alt="Cupcakes" class="aspect-square w-full object-cover" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="grid w-full grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+        {products.map(({ name, description, image }) => (
+          <article class="group relative flex flex-col items-center gap-3 text-center">
+            <div class="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border border-primary/12 bg-white p-1 transition group-hover:-translate-y-1 sm:h-36 sm:w-36">
+              <img src={image} alt={name} class="h-full w-full rounded-full object-cover" />
+            </div>
+            <div class="flex max-w-40 flex-col gap-1">
+              <h2 class="text-sm font-black leading-tight text-primary">{name.toUpperCase()}</h2>
+              <p class="text-xs font-bold leading-5 text-softcopy">{description}</p>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <Recommendations />
+    </div>
+  </main>
+  <Footer />
 </Layout>

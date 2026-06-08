@@ -5,57 +5,55 @@ import Layout from "../layouts/Layout.astro";
 
 const gallery = [
   { src: "/products/pasteles.jpg", alt: "Pastel personalizado para evento" },
-  { src: "/products/mostachon.jpg", alt: "Mesa de postres con mostachón" },
-  { src: "/products/cheesecake.jpg", alt: "Pastel decorado para celebración" },
-  { src: "/products/cupcakes.jpg", alt: "Cupcakes y postres para mesa dulce" },
+  { src: "/products/mostachon.jpg", alt: "Mesa de postres con mostachon" },
+  { src: "/products/cheesecake.jpg", alt: "Pastel decorado para celebracion" },
+  { src: "/products/cupcakes.jpg", alt: "Cupcakes para mesa dulce" },
   { src: "/products/fresas.jpg", alt: "Fresas cubiertas con chocolate" },
 ];
 
-const options = [
-  "Pasteles personalizados",
-  "Mesa dulce",
-  "Postres individuales",
-  "Diseño por temática",
-];
+const options = ["Pasteles personalizados", "Mesa dulce", "Postres individuales", "Diseno por tematica"];
 ---
 
-<Layout title="Eventos - Redvelvet pastelería">
-    <Navbar />
-    <main class="grid w-full place-items-center px-6 pb-6 pt-32 md:pt-36">
-        <div class="grid w-full max-w-2xl place-items-center gap-10">
-            <div class="relative h-64 w-full max-w-sm">
-                <img src="/mujer.png" alt="" class="absolute bottom-0 left-1/2 w-64 -translate-x-1/2">
-                <img src="/pastel.png" alt="" class="absolute bottom-0 left-1/2 w-22 -translate-x-28">
-                <img src="/gato.png" alt="" class="absolute bottom-0 left-0 w-34 sm:-left-8">
-                <img src="/florero.png" alt="" class="absolute bottom-0 right-2 w-14 sm:-right-4">
-            </div>
-
-            <div class="flex w-full flex-col gap-4">
-                <h1 class="w-full text-left font-[Caveat] text-5xl text-primary md:text-6xl">Eventos y mesas dulces.</h1>
-                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Contamos con mesa de postres y pasteles para eventos. Podemos preparar una propuesta dulce para cumpleaños, bodas, reuniones, aniversarios y celebraciones especiales.</p>
-                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Las imágenes son referencia de productos que podemos adaptar a tu celebración. Cuéntanos la fecha, número de invitados, estilo del evento y sabores que tienes en mente.</p>
-            </div>
-
-            <div class="flex w-full flex-wrap gap-2">
-                {options.map((option) => (
-                    <span class="rounded-full border border-primary/15 bg-white/60 px-4 py-2 text-sm font-black text-primary shadow-[0_8px_22px_rgb(239_47_127_/_0.08)]">
-                        {option}
-                    </span>
-                ))}
-            </div>
-
-            <div class="grid w-full grid-cols-2 gap-3 sm:grid-cols-3">
-                {gallery.map((image) => (
-                    <figure class="overflow-hidden rounded-3xl border border-primary/10 bg-white p-1 shadow-[0_14px_34px_rgb(239_47_127_/_0.1)]">
-                        <img src={image.src} alt={image.alt} class="aspect-square h-full w-full rounded-[1.25rem] object-cover" />
-                    </figure>
-                ))}
-            </div>
-
-            <a href="/contact" class="rounded-full bg-primary px-7 py-3 text-base font-black text-white shadow-[0_14px_34px_rgb(239_47_127_/_0.25)] transition hover:-translate-y-0.5 hover:bg-primary/90">
-                Cotizar evento
-            </a>
+<Layout title="Eventos - Redvelvet pasteleria">
+  <Navbar />
+  <main class="grid w-full place-items-center px-6 pb-10 pt-28 md:px-10 md:pt-34">
+    <div class="grid w-full max-w-6xl gap-12">
+      <section class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+        <div class="flex flex-col items-center text-center md:items-start md:text-left">
+          <p class="mb-4 rounded-full bg-secondary/25 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
+            Eventos dulces
+          </p>
+          <h1 class="max-w-[12ch] font-hero text-[clamp(2.8rem,8vw,5.25rem)] font-normal leading-[0.95] text-secondary md:max-w-[11ch]">
+            <span class="text-primary">Mesas dulces</span><br />
+            y pasteles para tu evento.
+          </h1>
+          <p class="mt-6 max-w-md text-base font-bold leading-8 text-copy md:text-lg">
+            Armamos propuestas para cumpleanos, bodas, reuniones, aniversarios y celebraciones especiales.
+          </p>
+          <div class="mt-7 flex flex-wrap justify-center gap-2 md:justify-start">
+            {options.map((option) => (
+              <span class="rounded-full border border-primary/12 bg-cream/80 px-3.5 py-2 text-xs font-black text-softcopy backdrop-blur-sm">
+                {option}
+              </span>
+            ))}
+          </div>
+          <a href="/contact" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-primary/90">
+            Cotizar evento
+          </a>
         </div>
-    </main>
-    <Footer />
+
+        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {gallery.map((image, index) => (
+            <figure class:list={[
+              "overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white p-1",
+              index === 0 ? "col-span-2 sm:row-span-2" : "",
+            ]}>
+              <img src={image.src} alt={image.alt} class="aspect-square h-full w-full rounded-[1.15rem] object-cover" />
+            </figure>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
 </Layout>

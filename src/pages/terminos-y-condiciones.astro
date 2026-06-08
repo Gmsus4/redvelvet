@@ -38,19 +38,15 @@ const terms = [
 <Layout title="Terminos y condiciones - Redvelvet pasteleria">
   <Navbar />
 
-  <main class="grid w-full place-items-center px-6 pb-8 pt-32 md:pt-36">
-    <div class="grid w-full max-w-2xl place-items-center gap-10">
-      <div class="relative h-64 w-full max-w-sm">
-        <img src="/mujer.png" alt="" class="absolute bottom-0 left-1/2 w-64 -translate-x-1/2" />
-        <img src="/pastel.png" alt="" class="absolute bottom-0 left-1/2 w-22 -translate-x-28" />
-        <img src="/gato.png" alt="" class="absolute bottom-0 left-0 w-34 sm:-left-8" />
-        <img src="/florero.png" alt="" class="absolute bottom-0 right-2 w-14 sm:-right-4" />
-      </div>
-
-      <section class="flex w-full flex-col gap-4">
-        <p class="font-[Caveat] text-5xl font-bold leading-none text-primary md:text-6xl">Terminos</p>
-        <h1 class="text-balance text-2xl font-black leading-tight text-copy md:text-3xl">
-          Para que tu pedido salga bonito y sin vueltas.
+  <main class="grid w-full place-items-center px-6 pb-10 pt-28 md:px-10 md:pt-34">
+    <div class="grid w-full max-w-4xl gap-10">
+      <section class="flex w-full flex-col items-center text-center">
+        <p class="mb-4 rounded-full bg-secondary/25 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
+          Terminos
+        </p>
+        <h1 class="max-w-[13ch] font-hero text-[clamp(2.6rem,8vw,4.8rem)] font-normal leading-[0.98] text-secondary mb-12">
+          <span class="text-primary">Pedido claro,</span><br />
+          proceso bonito y sin vueltas.
         </h1>
         <p class="text-base font-bold leading-8 text-copy">
           Al realizar un pedido con Redvelvet aceptas estas condiciones. Leelas con calma antes de apartar tu fecha.
@@ -62,7 +58,7 @@ const terms = [
 
       <section class="grid w-full gap-3">
         {terms.map((term, index) => (
-          <article class="grid grid-cols-[auto_1fr] gap-4 rounded-3xl border border-primary/10 bg-white/65 px-5 py-4 shadow-[0_12px_30px_rgb(239_47_127_/_0.08)] backdrop-blur-sm">
+          <article class="grid grid-cols-[auto_1fr] gap-4 rounded-3xl border border-primary/10 bg-white/50 px-5 py-4 backdrop-blur-sm">
             <span class="pt-1 font-[Caveat] text-3xl font-bold leading-none text-primary">
               {String(index + 1).padStart(2, '0')}
             </span>
@@ -74,11 +70,11 @@ const terms = [
         ))}
       </section>
 
-      <section class="flex w-full flex-col gap-4 rounded-3xl border border-primary/15 bg-secondary/18 p-5 shadow-[0_14px_34px_rgb(239_47_127_/_0.1)] sm:flex-row sm:items-center sm:justify-between">
+      <section class="flex w-full flex-col gap-4 rounded-3xl border border-primary/15 bg-secondary/18 p-5 sm:flex-row sm:items-center sm:justify-between">
         <p class="max-w-md text-base font-bold leading-8 text-copy">
           Si tienes dudas antes de confirmar tu pedido, escribenos y te ayudamos a revisar los detalles.
         </p>
-        <a href="/contact" class="inline-flex w-fit rounded-full bg-primary px-6 py-3 text-sm font-black text-white shadow-[0_12px_30px_rgb(239_47_127_/_0.22)] transition hover:-translate-y-0.5 hover:bg-primary/90">
+        <a href="/contact" class="inline-flex w-fit rounded-full bg-primary px-6 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-primary/90">
           Contactar
         </a>
       </section>

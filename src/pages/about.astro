@@ -2,25 +2,43 @@
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
+
+const notes = ["Recetas cuidadas", "Detalles a mano", "Pedidos con historia"];
 ---
 
-<Layout>
-    <Navbar />
-    <main class="grid w-full place-items-center px-6 pb-6 pt-32 md:pt-36">
-        <div class="grid w-full max-w-2xl place-items-center gap-10">
-            <div class="relative h-64 w-full max-w-sm">
-                <img src="/mujer.png" alt="" class="absolute bottom-0 left-1/2 w-64 -translate-x-1/2">
-                <img src="/pastel.png" alt="" class="absolute bottom-0 left-1/2 w-22 -translate-x-28">
-                <img src="/gato.png" alt="" class="absolute bottom-0 left-0 w-34 sm:-left-8">
-                <img src="/florero.png" alt="" class="absolute bottom-0 right-2 w-14 sm:-right-4">
-            </div>
-            <div class="flex w-full flex-col gap-4 rounded-[2rem] bg-cream/80 p-1 backdrop-blur-sm">
-                <h1 class="w-full text-left font-[Caveat] text-5xl text-primary md:text-6xl">Hola, soy Ari.</h1>
-                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Soy quien está detrás de Redvelvet: preparo cada pastel y cada postrecito con mucho detalle, desde la receta hasta la presentación final.</p>
-                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Este proyecto nació hace más de 4 años como una idea escolar y poco a poco se convirtió en algo mucho más grande. Hoy estudio gastronomía para seguir aprendiendo, mejorar mis técnicas y ofrecerles un servicio cada vez más bonito y cuidado.</p>
-                <p class="text-base md:text-[16px] font-bold leading-8 text-copy">Lo que más disfruto es conocerlos en persona, escuchar sus ideas y ser parte de momentos importantes: cumpleaños, reuniones, expos, entregas y celebraciones que se vuelven recuerdos dulces.</p>
-            </div>
+<Layout title="Conocenos - Redvelvet pasteleria">
+  <Navbar />
+  <main class="grid w-full place-items-center px-6 pb-10 pt-28 md:px-10 md:pt-34">
+    <section class="grid w-full max-w-6xl gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+      <div class="relative order-2 mx-auto grid w-full max-w-[30rem] place-items-center md:order-1">
+        <div class="absolute inset-x-10 bottom-0 top-10 rounded-[2.5rem] bg-secondary/18"></div>
+        <img src="/mujer.png" alt="Ari preparando un pastel" class="relative z-10 w-full max-w-[24rem] object-contain" />
+        <img src="/gato3.png" alt="" class="pointer-events-none absolute bottom-2 left-6 z-20 w-22 -scale-x-100 select-none" />
+        <img src="/pastel.png" alt="" class="pointer-events-none absolute bottom-6 right-10 z-20 w-20 select-none" />
+      </div>
+
+      <div class="relative order-1 flex flex-col items-center text-center md:order-2 md:items-start md:text-left">
+        <p class="mb-4 rounded-full bg-secondary/25 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
+          Detras de Redvelvet
+        </p>
+        <h1 class="max-w-[12ch] font-hero text-[clamp(2.8rem,8vw,5.25rem)] font-normal leading-[0.95] text-secondary md:max-w-[11ch]">
+          <span class="text-primary">Hola, soy Ari.</span><br />
+          Horneo para celebrar bonito.
+        </h1>
+        <div class="mt-6 flex max-w-xl flex-col gap-4 text-base font-bold leading-8 text-copy">
+          <p>Preparo cada pastel y cada postrecito con detalle, desde la receta hasta la presentacion final.</p>
+          <p>Redvelvet nacio como una idea escolar y se convirtio en un proyecto hecho con oficio, aprendizaje y mucho carino.</p>
+          <p>Lo que mas disfruto es escuchar tus ideas y volverlas parte de cumpleanos, reuniones, expos y momentos dulces.</p>
         </div>
-    </main>
-    <Footer />
+        <div class="mt-7 flex flex-wrap justify-center gap-2 md:justify-start">
+          {notes.map((note) => (
+            <span class="rounded-full border border-primary/12 bg-cream/80 px-3.5 py-2 text-xs font-black text-softcopy backdrop-blur-sm">
+              {note}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
 </Layout>
