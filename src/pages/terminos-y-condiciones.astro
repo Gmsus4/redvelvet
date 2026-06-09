@@ -40,7 +40,7 @@ const terms = [
 
   <main class="grid w-full place-items-center px-6 pb-10 pt-28 md:px-10 md:pt-34">
     <div class="grid w-full max-w-4xl gap-10">
-      <section class="flex w-full flex-col items-center text-center">
+      <section data-reveal class="flex w-full flex-col items-center text-center">
         <p class="mb-4 rounded-full bg-secondary/25 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
           Terminos
         </p>
@@ -58,7 +58,7 @@ const terms = [
 
       <section class="grid w-full gap-3">
         {terms.map((term, index) => (
-          <article class="grid grid-cols-[auto_1fr] gap-4 rounded-3xl border border-primary/10 bg-white/50 px-5 py-4 backdrop-blur-sm">
+          <article data-reveal="soft" style={`--reveal-delay: ${Math.min(index, 6) * 55}ms`} class="motion-pop grid grid-cols-[auto_1fr] gap-4 rounded-3xl border border-primary/10 bg-white/50 px-5 py-4 backdrop-blur-sm">
             <span class="pt-1 font-[Caveat] text-3xl font-bold leading-none text-primary">
               {String(index + 1).padStart(2, '0')}
             </span>
@@ -70,11 +70,11 @@ const terms = [
         ))}
       </section>
 
-      <section class="flex w-full flex-col gap-4 rounded-3xl border border-primary/15 bg-secondary/18 p-5 sm:flex-row sm:items-center sm:justify-between">
+      <section data-reveal class="flex w-full flex-col gap-4 rounded-3xl border border-primary/15 bg-secondary/18 p-5 sm:flex-row sm:items-center sm:justify-between">
         <p class="max-w-md text-base font-bold leading-8 text-copy">
           Si tienes dudas antes de confirmar tu pedido, escribenos y te ayudamos a revisar los detalles.
         </p>
-        <a href="/contact" class="inline-flex w-fit rounded-full bg-primary px-6 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-primary/90">
+        <a href="/contact" class="motion-press inline-flex w-fit rounded-full bg-primary px-6 py-3 text-sm font-black text-white transition hover:bg-primary/90">
           Contactar
         </a>
       </section>

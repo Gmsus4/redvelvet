@@ -18,11 +18,11 @@ const options = ["Pasteles personalizados", "Mesa dulce", "Postres individuales"
   <Navbar />
   <main class="grid w-full place-items-center overflow-hidden px-6 pb-10 pt-28 md:px-20 md:pt-34">
     <div class="grid w-full max-w-6xl gap-12">
-      <section class="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <section data-reveal class="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0 md:hidden">
-          <img src="/derecha/pastel.png" alt="" class="absolute -right-6 top-[30%] w-18 rotate-6" />
-          <img src="/izquierda/decoracion2.png" alt="" class="absolute -left-1 top-3 w-10 -rotate-12" />
-          <img src="/derecha/corazon1.png" alt="" class="absolute left-4 bottom-[42%] w-5 rotate-12" />
+          <img src="/derecha/pastel.png" alt="" class="motion-float absolute -right-6 top-[30%] w-18 rotate-6" />
+          <img src="/izquierda/decoracion2.png" alt="" class="motion-float-slow absolute -left-1 top-3 w-10 -rotate-12" />
+          <img src="/derecha/corazon1.png" alt="" class="motion-float absolute left-4 bottom-[42%] w-5 rotate-12" />
         </div>
 
         <div class="relative z-10 flex flex-col items-center text-center lg:items-start lg:text-left">
@@ -43,15 +43,15 @@ const options = ["Pasteles personalizados", "Mesa dulce", "Postres individuales"
               </span>
             ))}
           </div>
-          <a href="/contact" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-primary/90">
+          <a href="/contact" class="motion-press mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-black text-white transition hover:bg-primary/90">
             Cotizar evento
           </a>
         </div>
 
         <div class="relative z-10 grid grid-cols-2 gap-3 rounded-[2rem] bg-warm/20 p-2 sm:grid-cols-3 lg:bg-transparent lg:p-0">
           {gallery.map((image, index) => (
-            <figure class:list={[
-              "overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white p-1",
+            <figure data-reveal="image" style={`--reveal-delay: ${index * 70}ms`} class:list={[
+              "motion-pop overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white p-1",
               index === 0 ? "col-span-2 sm:row-span-2" : "",
             ]}>
               <img src={image.src} alt={image.alt} class="aspect-square h-full w-full rounded-[1.15rem] object-cover" />

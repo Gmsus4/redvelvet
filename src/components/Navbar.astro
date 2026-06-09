@@ -36,7 +36,7 @@ const mobileLinkClass = (href: string) => [
     <ul class="m-0 hidden list-none items-center justify-end gap-5 p-0 md:flex">
       {leftLinks.map(({ label, href }) => (
         <li>
-          <a href={href} aria-current={isActive(href) ? 'page' : undefined} class:list={desktopLinkClass(href)}>
+          <a href={href} aria-current={isActive(href) ? 'page' : undefined} class:list={[desktopLinkClass(href), 'motion-press']}>
             {label}
           </a>
         </li>
@@ -53,7 +53,7 @@ const mobileLinkClass = (href: string) => [
     <ul class="m-0 hidden list-none items-center justify-start gap-5 p-0 md:flex">
       {rightLinks.map(({ label, href }) => (
         <li>
-          <a href={href} aria-current={isActive(href) ? 'page' : undefined} class:list={desktopLinkClass(href)}>
+          <a href={href} aria-current={isActive(href) ? 'page' : undefined} class:list={[desktopLinkClass(href), 'motion-press']}>
             {label}
           </a>
         </li>

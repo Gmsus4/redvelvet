@@ -19,11 +19,11 @@ const orderInfo = ["Fecha de entrega", "Personas aproximadas", "Producto o idea"
 <Layout title="Contacto - Redvelvet pasteleria">
   <Navbar />
   <main class="grid w-full place-items-center overflow-hidden px-6 pb-10 pt-28 md:px-20 md:pt-34">
-    <section class="relative grid w-full max-w-6xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+    <section data-reveal class="relative grid w-full max-w-6xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
       <div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0 md:hidden">
-        <img src="/izquierda/batidor.png" alt="" class="absolute -right-2 top-[18%] w-11 rotate-12" />
+        <img src="/izquierda/batidor.png" alt="" class="motion-float absolute -right-2 top-[18%] w-11 rotate-12" />
         <!-- <img src="/florero.png" alt="" class="absolute -left-3 bottom-[18%] w-12 -rotate-6" /> -->
-        <img src="/derecha/corazon2.png" alt="" class="absolute right-8 bottom-[44%] w-5 rotate-12" />
+        <img src="/derecha/corazon2.png" alt="" class="motion-float-slow absolute right-8 bottom-[44%] w-5 rotate-12" />
       </div>
 
       <div class="relative z-10 flex flex-col items-center text-center lg:items-start lg:text-left">
@@ -39,10 +39,10 @@ const orderInfo = ["Fecha de entrega", "Personas aproximadas", "Producto o idea"
         </p>
 
         <div class="mt-7 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row lg:items-start">
-          <a href={orderFormUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-primary/90 sm:w-auto">
+          <a href={orderFormUrl} target="_blank" rel="noopener noreferrer" class="motion-press inline-flex min-h-12 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-black text-white transition hover:bg-primary/90 sm:w-auto">
             Formulario para agendar
           </a>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-primary/25 bg-white/55 px-8 text-sm font-black text-primary transition hover:-translate-y-0.5 hover:bg-white sm:w-auto">
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="motion-press inline-flex min-h-12 w-full items-center justify-center rounded-full border border-primary/25 bg-white/55 px-8 text-sm font-black text-primary transition hover:bg-white sm:w-auto">
             WhatsApp
           </a>
         </div>
@@ -50,12 +50,14 @@ const orderInfo = ["Fecha de entrega", "Personas aproximadas", "Producto o idea"
 
       <div class="relative z-10 grid gap-5">
         <div class="grid gap-3 rounded-[2rem] border border-primary/10 bg-secondary/10 p-4 backdrop-blur-sm lg:bg-white/45">
-          {contactInfo.map(({ label, value, url }) => (
+          {contactInfo.map(({ label, value, url }, index) => (
             <a
               href={url}
               target={url.startsWith("http") ? "_blank" : undefined}
               rel={url.startsWith("http") ? "noopener noreferrer" : undefined}
-              class="group flex items-center justify-between gap-4 rounded-2xl bg-cream/85 px-4 py-3 transition hover:bg-white"
+              data-reveal="soft"
+              style={`--reveal-delay: ${index * 60}ms`}
+              class="motion-press group flex items-center justify-between gap-4 rounded-2xl bg-cream/85 px-4 py-3 transition hover:bg-white"
             >
               <span class="text-xs font-black uppercase tracking-[0.16em] text-primary">{label}</span>
               <span class="break-all text-right text-sm font-bold text-copy">{value}</span>

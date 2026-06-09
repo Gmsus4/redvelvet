@@ -40,7 +40,7 @@ const socials = [
 ];
 ---
 
-<footer class="relative z-[100] lg:mt-24 overflow-hidden bg-primary pb-8 pt-20 text-cream">
+<footer data-reveal class="relative z-[100] lg:mt-24 overflow-hidden bg-primary pb-8 pt-20 text-cream">
   <div class="mx-auto grid w-full max-w-7xl gap-12 px-6 md:grid-cols-[1.25fr_0.75fr] md:items-end">
     <div class="relative">
       <a href="/" class="font-[Caveat] text-6xl font-bold leading-none text-cream no-underline transition hover:opacity-80">
@@ -62,7 +62,7 @@ const socials = [
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.name}
-            class="group inline-flex items-center gap-2 text-sm font-black text-cream transition hover:text-secondary"
+            class="motion-press group inline-flex items-center gap-2 text-sm font-black text-cream transition hover:text-secondary"
           >
             <span class="grid h-9 w-9 place-items-center rounded-full bg-cream text-primary transition group-hover:bg-secondary [&_svg]:h-5 [&_svg]:w-5">
               <span set:html={social.icon} />
@@ -73,8 +73,8 @@ const socials = [
       </div>
     </div>
 
-    <div class="relative rounded-[2rem] border-2 border-cream bg-cream p-5 text-copy shadow-[5px_5px_0_#b81457]">
-      <img src="/florero.png" alt="" class="pointer-events-none absolute -bottom-1 -right-3 w-14 select-none" />
+    <div data-reveal="soft" class="relative rounded-[2rem] border-2 border-cream bg-cream p-5 text-copy shadow-[5px_5px_0_#b81457]">
+      <img src="/florero.png" alt="" class="motion-float pointer-events-none absolute -bottom-1 -right-3 w-14 select-none" />
 
       <nav aria-label="Navegacion del pie de pagina">
         <p class="mb-4 font-[Caveat] text-3xl font-bold text-primary">Explora</p>
