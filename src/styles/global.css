@@ -53,3 +53,21 @@ body {
 a {
   text-decoration: none;
 }
+
+::view-transition-old(root),
+::view-transition-new(root),
+::view-transition-old(page-shell),
+::view-transition-new(page-shell),
+::view-transition-old(site-decorations),
+::view-transition-new(site-decorations) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-group(site-decorations) {
+  z-index: 0;
+}
+
+::view-transition-group(page-shell) {
+  z-index: 1;
+}

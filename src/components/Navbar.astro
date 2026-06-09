@@ -97,32 +97,52 @@ const mobileLinkClass = (href: string) => [
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet" />
 
 <script>
-  const btn = document.getElementById('hamburger-btn') as HTMLButtonElement;
-  const menu = document.getElementById('mobile-menu') as HTMLDivElement;
-  const line1 = document.getElementById('h-line1') as HTMLSpanElement;
-  const line2 = document.getElementById('h-line2') as HTMLSpanElement;
-  const line3 = document.getElementById('h-line3') as HTMLSpanElement;
+  function initMobileMenu() {
+    const btn = document.getElementById('hamburger-btn') as HTMLButtonElement | null;
+    const menu = document.getElementById('mobile-menu') as HTMLDivElement | null;
+    const line1 = document.getElementById('h-line1') as HTMLSpanElement | null;
+    const line2 = document.getElementById('h-line2') as HTMLSpanElement | null;
+    const line3 = document.getElementById('h-line3') as HTMLSpanElement | null;
 
-  btn.addEventListener('click', () => {
-    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    if (!btn || !menu || !line1 || !line2 || !line3 || btn.dataset.bound === 'true') return;
 
-    btn.setAttribute('aria-expanded', String(!isOpen));
-    menu.setAttribute('aria-hidden', String(isOpen));
-
-    if (!isOpen) {
-      menu.classList.remove('opacity-0', 'pointer-events-none', '-z-10');
-      menu.classList.add('opacity-100', 'pointer-events-auto', 'z-[60]');
-      line1.style.transform = 'translateY(8px) rotate(45deg)';
-      line2.style.opacity = '0';
-      line3.style.transform = 'translateY(-8px) rotate(-45deg)';
-      document.body.style.overflow = 'hidden';
-    } else {
+    const closeMenu = () => {
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
       menu.classList.add('opacity-0', 'pointer-events-none', '-z-10');
       menu.classList.remove('opacity-100', 'pointer-events-auto', 'z-[60]');
       line1.style.transform = '';
       line2.style.opacity = '';
       line3.style.transform = '';
       document.body.style.overflow = '';
-    }
-  });
+    };
+
+    btn.dataset.bound = 'true';
+    closeMenu();
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+        closeMenu();
+        return;
+      }
+
+      btn.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+      menu.classList.remove('opacity-0', 'pointer-events-none', '-z-10');
+      menu.classList.add('opacity-100', 'pointer-events-auto', 'z-[60]');
+      line1.style.transform = 'translateY(8px) rotate(45deg)';
+      line2.style.opacity = '0';
+      line3.style.transform = 'translateY(-8px) rotate(-45deg)';
+      document.body.style.overflow = 'hidden';
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+
+  initMobileMenu();
+  document.addEventListener('astro:page-load', initMobileMenu);
 </script>

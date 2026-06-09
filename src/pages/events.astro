@@ -4,11 +4,11 @@ import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 
 const gallery = [
-  { src: "/products/pasteles.jpg", alt: "Pastel personalizado para evento" },
-  { src: "/products/mostachon.jpg", alt: "Mesa de postres con mostachon" },
-  { src: "/products/cheesecake.jpg", alt: "Pastel decorado para celebracion" },
-  { src: "/products/cupcakes.jpg", alt: "Cupcakes para mesa dulce" },
-  { src: "/products/fresas.jpg", alt: "Fresas cubiertas con chocolate" },
+  { src: "/products/pasteles.webp", alt: "Pastel personalizado para evento" },
+  { src: "/products/mostachon.webp", alt: "Mesa de postres con mostachon" },
+  { src: "/products/cheesecake.webp", alt: "Pastel decorado para celebracion" },
+  { src: "/products/cupcakes.webp", alt: "Cupcakes para mesa dulce" },
+  { src: "/products/fresas.webp", alt: "Fresas cubiertas con chocolate" },
 ];
 
 const options = ["Pasteles personalizados", "Mesa dulce", "Postres individuales", "Diseno por tematica"];
@@ -16,11 +16,17 @@ const options = ["Pasteles personalizados", "Mesa dulce", "Postres individuales"
 
 <Layout title="Eventos - Redvelvet pasteleria">
   <Navbar />
-  <main class="grid w-full place-items-center px-6 pb-10 pt-28 md:px-10 md:pt-34">
+  <main class="grid w-full place-items-center overflow-hidden px-6 pb-10 pt-28 md:px-20 md:pt-34">
     <div class="grid w-full max-w-6xl gap-12">
-      <section class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-        <div class="flex flex-col items-center text-center md:items-start md:text-left">
-          <p class="mb-4 rounded-full bg-secondary/25 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
+      <section class="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0 md:hidden">
+          <img src="/derecha/pastel.png" alt="" class="absolute -right-6 top-[30%] w-18 rotate-6" />
+          <img src="/izquierda/decoracion2.png" alt="" class="absolute -left-1 top-3 w-10 -rotate-12" />
+          <img src="/derecha/corazon1.png" alt="" class="absolute left-4 bottom-[42%] w-5 rotate-12" />
+        </div>
+
+        <div class="relative z-10 flex flex-col items-center text-center lg:items-start lg:text-left">
+          <p class="mb-4 rounded-full bg-warm px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary lg:bg-secondary/25">
             Eventos dulces
           </p>
           <h1 class="max-w-[12ch] font-hero text-[clamp(2.8rem,8vw,4.50rem)] font-normal leading-[0.95] text-secondary md:max-w-[11ch]">
@@ -30,9 +36,9 @@ const options = ["Pasteles personalizados", "Mesa dulce", "Postres individuales"
           <p class="mt-6 max-w-md text-base font-bold leading-8 text-copy md:text-lg">
             Armamos propuestas para cumpleanos, bodas, reuniones, aniversarios y celebraciones especiales.
           </p>
-          <div class="mt-7 flex flex-wrap justify-center gap-2 md:justify-start">
+          <div class="mt-7 flex flex-wrap justify-center gap-2 lg:justify-start">
             {options.map((option) => (
-              <span class="rounded-full border border-primary/12 bg-cream/80 px-3.5 py-2 text-xs font-black text-softcopy backdrop-blur-sm">
+              <span class="rounded-full border border-primary/12 bg-warm/20 px-3.5 py-2 text-xs font-black text-softcopy backdrop-blur-sm lg:bg-cream/80">
                 {option}
               </span>
             ))}
@@ -42,7 +48,7 @@ const options = ["Pasteles personalizados", "Mesa dulce", "Postres individuales"
           </a>
         </div>
 
-        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <div class="relative z-10 grid grid-cols-2 gap-3 rounded-[2rem] bg-warm/20 p-2 sm:grid-cols-3 lg:bg-transparent lg:p-0">
           {gallery.map((image, index) => (
             <figure class:list={[
               "overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white p-1",
