@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
+import Announcements from '../components/Announcements.astro';
 
 interface Props {
   title?: string;
@@ -8,7 +9,7 @@ interface Props {
 }
 
 const {
-  title = 'redvelvet_pasteleria - Pasteles artesanales en Veracruz',
+  title = 'RedVelvet Pastelería - Pasteles artesanales en Veracruz',
   description = 'Pasteles y postres artesanales hechos con amor en Veracruz. Pedidos personalizados, mesas dulces y detalles para celebrar bonito.',
 } = Astro.props;
 ---
@@ -57,6 +58,8 @@ const {
     <div transition:name="page-shell" transition:animate="none" class="relative z-10 flex min-h-screen flex-col">
       <slot />
     </div>
+
+    <Announcements />
 
     <script>
       let revealObserver: IntersectionObserver | null = null;
