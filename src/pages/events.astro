@@ -12,6 +12,19 @@ const gallery = [
 ];
 
 const options = ["Pasteles personalizados", "Mesa dulce", "Postres individuales", "Diseno por tematica"];
+
+const includes = [
+  { label: "Base", value: "Pastel principal o mesa dulce" },
+  { label: "Detalle", value: "Colores, tematica y presentacion" },
+  { label: "Porciones", value: "Cantidad sugerida segun invitados" },
+  { label: "Extras", value: "Postres individuales para complementar" },
+];
+
+const steps = [
+  { title: "Cuentanos", description: "Fecha, lugar, numero aproximado de personas y tipo de celebracion." },
+  { title: "Cotizamos", description: "Te proponemos opciones de postres, cantidades y estilo visual." },
+  { title: "Apartas", description: "Confirmamos fecha y empezamos a preparar los detalles de tu mesa." },
+];
 ---
 
 <Layout title="Eventos - Redvelvet pasteleria">
@@ -57,6 +70,52 @@ const options = ["Pasteles personalizados", "Mesa dulce", "Postres individuales"
               <img src={image.src} alt={image.alt} class="aspect-square h-full w-full rounded-[1.15rem] object-cover" />
             </figure>
           ))}
+        </div>
+      </section>
+
+      <section data-reveal class="grid gap-8">
+        <div class="rounded-[2.5rem] border border-primary/10 bg-white/45 p-5 backdrop-blur-sm md:p-8">
+          <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p class="mb-4 inline-block rounded-full bg-warm px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
+                Cotizacion
+              </p>
+              <h2 class="max-w-[15ch] font-hero text-4xl font-normal leading-none text-primary sm:text-5xl">
+                Armamos la mesa segun tu evento.
+              </h2>
+            </div>
+            <p class="max-w-md text-sm font-bold leading-7 text-copy">
+              No todos los eventos necesitan lo mismo. Ajustamos cantidades, estilos y tipo de postre segun invitados, horario y forma de servir.
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {includes.map((item, index) => (
+              <article data-reveal="soft" style={`--reveal-delay: ${index * 60}ms`} class="motion-pop min-h-36 rounded-[1.75rem] bg-cream/85 p-4">
+                <p class="font-[Caveat] text-3xl font-bold leading-none text-secondary">{item.label}</p>
+                <p class="mt-4 text-sm font-black leading-6 text-copy">{item.value}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div class="grid gap-4 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-center">
+          {steps.map((step, index) => (
+            <>
+              <article data-reveal="soft" style={`--reveal-delay: ${index * 80}ms`} class="rounded-[2rem] bg-secondary/12 p-5 text-center">
+                <span class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-primary font-black text-white">{index + 1}</span>
+                <h3 class="mt-4 text-sm font-black uppercase tracking-[0.12em] text-primary">{step.title}</h3>
+                <p class="mt-2 text-sm font-bold leading-7 text-copy">{step.description}</p>
+              </article>
+              {index < steps.length - 1 && <span class="hidden h-px w-10 bg-primary/40 lg:block"></span>}
+            </>
+          ))}
+        </div>
+
+        <div class="flex justify-center">
+          <a href="/contact" class="motion-press inline-flex min-h-12 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-black text-white transition hover:bg-primary/90 sm:w-fit">
+            Quiero cotizar mi evento
+          </a>
         </div>
       </section>
     </div>

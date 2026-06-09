@@ -4,6 +4,12 @@ import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 
 const notes = ["Recetas cuidadas", "Detalles a mano", "Pedidos con historia"];
+
+const story = [
+  { year: "Inicio", text: "Redvelvet empezo como una idea escolar, con recetas probadas en casa y muchas ganas de aprender." },
+  { year: "Primeros pedidos", text: "Llegaron encargos familiares, cumpleanos pequenos y detalles hechos con mas emocion que prisa." },
+  { year: "Hoy", text: "Preparamos postres para reuniones, eventos y celebraciones que merecen algo hecho con cuidado." },
+];
 ---
 
 <Layout title="Conócenos - Redvelvet pastelería">
@@ -41,6 +47,34 @@ const notes = ["Recetas cuidadas", "Detalles a mano", "Pedidos con historia"];
           <span class="rounded-full border border-primary/12 bg-warm/20 px-3.5 py-2 text-xs font-black text-softcopy backdrop-blur-sm lg:bg-cream/80">
               {note}
             </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section data-reveal class="mt-16 grid w-full max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="relative rounded-[2.5rem] bg-primary p-7 text-cream md:p-10">
+        <img src="/corazon.png" alt="" class="motion-float pointer-events-none absolute -right-3 -top-4 w-12 rotate-12 select-none" />
+        <p class="font-[Caveat] text-4xl font-bold leading-none text-cream md:text-5xl">Lo que queremos que sientas</p>
+        <p class="mt-6 max-w-2xl text-2xl font-black leading-tight text-cream md:text-3xl">
+          Que tu postre no sea solo bonito para la foto, sino rico, cuidado y pensado para el momento que vas a celebrar.
+        </p>
+        <p class="mt-5 text-base font-bold leading-8 text-cream/85">
+          Por eso preguntamos, proponemos y ajustamos detalles. La idea no es hacer un pastel cualquiera: es hacer uno que tenga sentido contigo.
+        </p>
+      </div>
+
+      <div class="relative">
+        <p class="mb-5 inline-block rounded-full bg-warm px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary">
+          Nuestra historia
+        </p>
+        <div class="grid gap-6 border-l-2 border-dashed border-primary/35 pl-5">
+          {story.map((item, index) => (
+            <article data-reveal="soft" style={`--reveal-delay: ${index * 80}ms`} class="relative">
+              <span class="absolute -left-[1.85rem] top-1 h-4 w-4 rounded-full border-4 border-cream bg-primary"></span>
+              <h2 class="font-[Caveat] text-3xl font-bold leading-none text-primary">{item.year}</h2>
+              <p class="mt-2 text-sm font-bold leading-7 text-copy">{item.text}</p>
+            </article>
           ))}
         </div>
       </div>
