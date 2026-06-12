@@ -11,7 +11,7 @@ export const announcements = [
     active: false,
     eyebrow: "Pago",
     title: "Datos para transferencia",
-    message: "Comparte redvelvet.com/payment para enviar datos de pago y recibir comprobantes.",
+    message: "Comparte dulceaurora-demo.com/payment para enviar datos de pago de muestra.",
     href: "/payment",
     cta: "Ver datos",
   },

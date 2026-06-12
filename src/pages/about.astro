@@ -6,13 +6,13 @@ import Layout from "../layouts/Layout.astro";
 const notes = ["Recetas cuidadas", "Detalles a mano", "Pedidos con historia"];
 
 const story = [
-  { year: "Inicio", text: "Redvelvet empezo como una idea escolar, con recetas probadas en casa y muchas ganas de aprender." },
+  { year: "Inicio", text: "Dulce Aurora empezo como una idea ficticia para mostrar una experiencia digital de pasteleria." },
   { year: "Primeros pedidos", text: "Llegaron encargos familiares, cumpleanos pequenos y detalles hechos con mas emocion que prisa." },
   { year: "Hoy", text: "Preparamos postres para reuniones, eventos y celebraciones que merecen algo hecho con cuidado." },
 ];
 ---
 
-<Layout title="Conócenos - Redvelvet pastelería">
+<Layout title="Conocenos - Dulce Aurora demo">
   <Navbar />
   <main class="grid w-full place-items-center overflow-hidden px-6 pb-10 pt-28 md:px-20 md:pt-34">
     <section data-reveal class="relative grid w-full max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -24,22 +24,22 @@ const story = [
 
       <div class="relative order-2 mx-auto grid w-full max-w-[30rem] place-items-center lg:order-1">
         <div class="absolute inset-x-10 bottom-0 top-10 rounded-[2.5rem] bg-secondary/18"></div>
-        <img src="/mujer.png" alt="Ari preparando un pastel" class="relative z-10 w-full max-w-[24rem] object-contain" />
+        <img src="/mujer.png" alt="Lia Moreno preparando un pastel" class="relative z-10 w-full max-w-[24rem] object-contain" />
         <img src="/gato3.png" alt="" class="motion-float pointer-events-none absolute bottom-2 left-6 z-20 w-22 -scale-x-100 select-none" />
         <img src="/pastel.png" alt="" class="motion-float-slow pointer-events-none absolute bottom-6 right-10 z-20 w-20 select-none" />
       </div>
 
       <div class="relative z-10 order-1 flex flex-col items-center text-center lg:order-2 lg:items-start lg:text-left">
         <p class="mb-4 rounded-full bg-warm px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-primary lg:bg-secondary/25">
-          Detras de Redvelvet
+          Detras de Dulce Aurora
         </p>
         <h1 class="max-w-[12ch] font-hero text-[clamp(2.8rem,8vw,4.25rem)] font-normal leading-[0.95] text-secondary md:max-w-[12ch]">
-          <span class="text-primary">Hola, soy Ari.</span><br />
+          <span class="text-primary">Hola, soy Lia.</span><br />
           Horneo para celebrar bonito.
         </h1>
         <div class="mt-6 flex max-w-xl flex-col gap-4 text-base font-bold leading-8 text-copy">
           <p>Preparo cada pastel y cada postrecito con detalle, desde la receta hasta la presentacion final.</p>
-          <p>Redvelvet nacio como una idea escolar y se convirtio en un proyecto hecho con oficio, aprendizaje y mucho carino.</p>
+          <p>Dulce Aurora es una marca demo creada para presentar una propuesta visual y funcional para negocios de reposteria.</p>
           <p>Lo que mas disfruto es escuchar tus ideas y volverlas parte de cumpleanos, reuniones, expos y momentos dulces.</p>
         </div>
         <div class="mt-7 flex flex-wrap justify-center gap-2 md:justify-start">
