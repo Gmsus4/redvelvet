@@ -9,12 +9,9 @@ interface Props {
 }
 
 const {
-  title = 'Dulce Aurora - Demo de pasteleria artesanal',
-  description = 'Sitio demo para pasteleria artesanal ficticia. Catalogo, eventos, contacto, pagos y politicas de muestra.',
+  title = 'RedVelvet Pastelería - Pasteles artesanales en Veracruz',
+  description = 'Pasteles y postres artesanales hechos con amor en Veracruz. Pedidos personalizados, mesas dulces y detalles para celebrar bonito.',
 } = Astro.props;
-
-const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
-const showAnnouncements = currentPath === '/';
 ---
 
 <!doctype html>
@@ -62,7 +59,7 @@ const showAnnouncements = currentPath === '/';
       <slot />
     </div>
 
-    {showAnnouncements && <Announcements />}
+    <Announcements />
 
     <script>
       let revealObserver: IntersectionObserver | null = null;

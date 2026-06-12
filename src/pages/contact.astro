@@ -4,18 +4,19 @@ import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 
 const orderFormUrl = "#";
-const experienceFormUrl = "#";
-const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Dulce%20Aurora%20Demo%20Villa%20Aurora%20Mexico";
-const mapsEmbedUrl = "https://www.google.com/maps?q=Dulce%20Aurora%20Demo%20Villa%20Aurora%20Mexico&output=embed";
-const whatsappBaseUrl = "https://wa.me/525501004827";
+const experienceFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeD_5FzQZ_6lQI5nNCZ2cluu4QCAkNNedchoNPBV6yd1ru7gg/viewform";
+const mapsUrl = "https://maps.app.goo.gl/i9zM7Csfiqok7i8z7";
+const mapsEmbedUrl = "https://www.google.com/maps?q=Redvelvet%20pasteleria%20Cordoba%20Veracruz%20Mexico&output=embed";
+const whatsappBaseUrl = "https://wa.me/522712846425";
 const defaultWhatsappMessage = "Hola, quiero cotizar un pedido para [fecha]. Me interesa [producto] para [personas]. Me gustaria estilo [colores/tema] y entrega en [zona].";
 // const whatsappUrl = `${whatsappBaseUrl}?text=${encodeURIComponent("Hola, quiero agendar un pedido")}`;
 const whatsappUrl = `${whatsappBaseUrl}`;
 
 const contactInfo = [
-  { label: "Instagram", value: "@dulceaurora_demo", url: "#" },
-  { label: "WhatsApp", value: "+52 55 0100 4827", url: whatsappUrl },
-  { label: "Correo", value: "hola@dulceaurora-demo.com", url: "mailto:hola@dulceaurora-demo.com" },
+  { label: "Instagram", value: "@redvelvet_pasteleria", url: "https://www.instagram.com/redvelvet_pasteleria_/" },
+  // { label: "Facebook", value: "RedVelvet pasteleria", url: "#" },
+  { label: "WhatsApp", value: "+52 271 284 6425", url: whatsappUrl },
+  { label: "Correo", value: "redvelvetpasteleria19@gmail.com", url: "mailto:redvelvetpasteleria19@gmail.com" },
 ];
 
 const orderInfo = ["Fecha de entrega", "Personas aproximadas", "Producto o idea", "Colores o referencias"];
@@ -33,10 +34,10 @@ const responseNotes = [
   { title: "Entrega", description: "Coordinamos detalles segun producto, horario y zona disponible." },
 ];
 
-const deliveryZones = ["Villa Aurora", "Colonia Magnolia", "Jardin Norte", "Lomas Dulces", "Centro Demo"];
+const deliveryZones = ["Cordoba", "Penuela", "Fortin", "Orizaba", "Yanga"];
 ---
 
-<Layout title="Contacto - Dulce Aurora demo">
+<Layout title="Contacto - Redvelvet pasteleria">
   <Navbar />
   <main class="grid w-full place-items-center overflow-hidden px-6 pb-10 pt-28 md:px-20 md:pt-34">
     <section data-reveal class="relative grid w-full max-w-6xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -149,7 +150,7 @@ const deliveryZones = ["Villa Aurora", "Colonia Magnolia", "Jardin Norte", "Loma
           Ubicacion y entregas
         </p>
         <h2 class="font-hero text-4xl font-normal leading-none text-primary sm:text-5xl">
-          Estamos en Villa Aurora.
+          Estamos en Cordoba, Veracruz.
         </h2>
         <p class="mt-5 text-base font-bold leading-8 text-copy">
           Coordinamos entregas segun producto, horario y disponibilidad. Si tu zona no aparece, escribenos y revisamos si podemos ayudarte.
@@ -163,7 +164,7 @@ const deliveryZones = ["Villa Aurora", "Colonia Magnolia", "Jardin Norte", "Loma
         <div class="relative overflow-hidden rounded-[2rem] border border-primary/10 bg-cream p-2 shadow-[0_18px_38px_rgb(239_47_127_/_0.12)]">
           <iframe
             src={mapsEmbedUrl}
-            title="Ubicacion demo de Dulce Aurora en Google Maps"
+            title="Ubicacion de Redvelvet pasteleria en Google Maps"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             class="aspect-[4/3] w-full rounded-[1.5rem] border-0 sm:aspect-[16/9]"
@@ -188,7 +189,7 @@ const deliveryZones = ["Villa Aurora", "Colonia Magnolia", "Jardin Norte", "Loma
 
         <div class="relative z-10 mx-auto max-w-3xl">
           <p class="mx-auto max-w-[14ch] font-hero text-4xl font-normal leading-none text-primary sm:max-w-none sm:text-5xl">
-            Ya probaste algo de Dulce Aurora?
+            Ya probaste algo de Redvelvet?
           </p>
           <p class="mx-auto mt-5 max-w-2xl text-base font-bold leading-8 text-copy">
             Cuentanos como fue tu experiencia. Tu opinion nos ayuda a mejorar recetas, entregas y detalles para seguir celebrando bonito.
@@ -207,7 +208,7 @@ const deliveryZones = ["Villa Aurora", "Colonia Magnolia", "Jardin Norte", "Loma
     function initWhatsappMessage() {
       const textarea = document.getElementById('whatsapp-message') as HTMLTextAreaElement | null;
       const link = document.getElementById('whatsapp-message-link') as HTMLAnchorElement | null;
-      const baseUrl = 'https://wa.me/525501004827';
+      const baseUrl = 'https://wa.me/522712846425';
 
       if (!textarea || !link) return;
 
